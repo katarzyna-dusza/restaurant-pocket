@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, AppNameWrapper, AppName } from './components'
+import { Icon, AppName } from './shared/components'
 
 const MainNav = () => (
   <div>
