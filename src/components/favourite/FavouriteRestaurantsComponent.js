@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Restaurants from './Restaurants';
+import Map from './Map';
+import * as actions from '../../redux/actions';
+import * as reducers from '../../redux/reducers';
 
 const FavouriteRestaurantsWrapper = styled.div`
   height: calc(100vh - 90px);
@@ -57,10 +61,20 @@ class FavouriteRestaurantsComponent extends Component {
           <Restaurants restaurants={restaurants}></Restaurants>
         </FavouriteRestaurantsWrapper>
         <MapWrapper>
+          <Map isMarkerShown={false} address={this.props.address} />
         </MapWrapper>
       </div>
     );
   }
 }
+
+export const mapStateToProps = (state, { history }) => ({
+    address: reducers.getAddress(state)
+});
+
+FavouriteRestaurantsComponent = connect(
+    mapStateToProps,
+    actions
+)(FavouriteRestaurantsComponent);
 
 export default FavouriteRestaurantsComponent;

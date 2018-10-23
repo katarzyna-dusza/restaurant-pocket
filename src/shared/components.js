@@ -32,6 +32,7 @@ export const Button = styled.button`
   font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
   float: right;
+  cursor: pointer;
 `;
 
 export const BackgroundImage = styled.div`
@@ -70,5 +71,3 @@ export const FindInput = styled.input`
     font-family: 'Ubuntu', sans-serif;
   }
 `;
-
-// background-image: ${props => props.imageSrc ? props.imageSrc : "white"};

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import { BackgroundImage, Header, FindInput, Button } from '../../shared/components';
 import background from './background.jpg';
+import * as actions from '../../redux/actions';
+import reducers, { getAddress } from '../../redux/reducers';
 
 const FindWrapper = styled.div`
   width: 50%;
@@ -29,7 +32,9 @@ class FindRestaurant extends Component {
   }
 
   handleFind() {
-    console.log(this.state.address);
+    const { setAddress } = this.props;
+    setAddress(this.state.address);
+    this.props.history.push('/favourite');
   }
 
   render() {
@@ -45,5 +50,12 @@ class FindRestaurant extends Component {
     );
   }
 }
+
+export const mapStateToProps = (state, {}) => ({});
+
+FindRestaurant = connect(
+    mapStateToProps,
+    actions
+)(FindRestaurant);
 
 export default FindRestaurant;

@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "babel-eslint": "9.0.0",
+    "google-map-react": "^1.0.9",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-geocode": "^0.1.2",
+    "react-google-maps": "^9.4.5",
     "react-js-pagination": "^3.0.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
     "styled-components": "^4.0.2"
   },
   "scripts": {
@@ -17,7 +25,8 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "parser": "babel-eslint"
   },
   "browserslist": [
     ">0.2%",

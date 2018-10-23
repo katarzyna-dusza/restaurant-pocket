@@ -4,12 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainNav from './MainNav';
 import HomeComponent from './components/home/HomeComponent';
 import FavouriteRestaurantsComponent from './components/favourite/FavouriteRestaurantsComponent';
-// 
-// const MapWrapper = styled.div`
-//   width: 100%;
-//   height: 400px;
-//   background-color: grey;
-// `;
 
 const MainNavWrapper = styled.div`
   width: 100%;
@@ -33,17 +27,3 @@ const App = () => (
 );
 
 export default App;
-// const MapWrapper = styled.div`
-//   width: 100%;
-//   height: 400px;
-//   background-color: grey;
-// `;
-//
-// const MainNavWrapper = styled.div`
-//   width: 100%;
-//   height: 400px;
-//   background-color: grey;
-// `;
-//         <MapWrapper>
-//           <Map></Map>
-//         </MapWrapper>
