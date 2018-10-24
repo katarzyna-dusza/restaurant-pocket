@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import RatingComponent from './RatingComponent';
+// import Rating from 'react-rating';
 
 const RestaurantCardWrapper = styled.div`
   height: 100px;
@@ -30,19 +32,19 @@ const OriginalName = styled.div`
   text-align: left;
 `;
 
-const Rating = styled.div`
-  width: 100%;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 10px;
-  text-align: right;
-
-  > i {
-    color: #f4e21a;
-  }
-`;
+// const Rating = styled.div`
+//   width: 100%;
+//   position: absolute;
+//   bottom: 5px;
+//   right: 5px;
+//   font-family: 'Ubuntu', sans-serif;
+//   font-size: 10px;
+//   text-align: right;
+//
+//   > i {
+//     color: #f4e21a;
+//   }
+// `;
 
 const Icon = styled.div`
   width: 30px;
@@ -72,10 +74,10 @@ class RestaurantCard extends Component {
           <i className="material-icons">fastfood</i>
         </Icon>
         <Name>{this.props.data.name}</Name>
-        <Rating>{rating}</Rating>
+        <RatingComponent readonly rating={this.props.data.rating} />
       </RestaurantCardWrapper>
     );
   }
 }
-
+// <Rating rating={this.props.data.rating}></Rating>
 export default RestaurantCard;

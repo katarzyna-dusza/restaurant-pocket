@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from '../../shared/components';
 import * as actions from '../../redux/actions';
+import RatingComponent from './RatingComponent';
 
 const Header = styled.div`
   padding: 10px 15px;
@@ -43,11 +44,7 @@ cursor: pointer
 `;
 
 const Rating = styled.div`
-  width: 100%;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 10px;
-  text-align: left;
-  margin: 0 12px;
+
 `;
 
 class Tooltip extends Component {
@@ -60,6 +57,7 @@ class Tooltip extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    // this.rating = this.rating.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
   }
 
@@ -68,12 +66,19 @@ class Tooltip extends Component {
   }
 
   addRestaurant() {
-    const restaurant = {
-      name: this.state.name,
-      rating: Math.floor(Math.random() * 5) + 1,
-    };
-    this.props.addRestaurant(restaurant);
+    console.log(this.state)
+    // const restaurant = {
+    //   name: this.state.name,
+    //   rating: Math.floor(Math.random() * 5) + 1,
+    // };
+    // this.props.addRestaurant(restaurant);
   }
+
+  // rating(event) {
+  //   this.setState({ rating: event });
+  //   console.log(event)
+  //   console.log(this.state)
+  // }
 
   render() {
     return (
@@ -86,13 +91,7 @@ class Tooltip extends Component {
           onChange={this.handleChange}
         />
         <Label>Rate it:</Label>
-        <Rating>
-          <i className="material-icons">star</i>
-          <i className="material-icons">star</i>
-          <i className="material-icons">star</i>
-          <i className="material-icons">star</i>
-          <i className="material-icons">star</i>
-        </Rating>
+        <RatingComponent />
         <Button onClick={this.addRestaurant}>Add</Button>
       </TooltipWrapperA>
     );
