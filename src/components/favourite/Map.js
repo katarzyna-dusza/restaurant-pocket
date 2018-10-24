@@ -13,11 +13,11 @@ const Map = (props) => (
       center={ props.geo }
       defaultZoom={15}
     >
-    <Tooltip
-      lat={ props.geo.lat }
-      lng={ props.geo.lng }
-      addRestaurant={ props.addRestaurant }
-    />
+      <Tooltip
+        lat={ props.geo.lat }
+        lng={ props.geo.lng }
+        addRestaurant={ props.addRestaurant }
+      />
     </GoogleMapReact>
   </div>
 );

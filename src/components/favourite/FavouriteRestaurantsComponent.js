@@ -44,10 +44,6 @@ class FavouriteRestaurantsComponent extends Component {
     fetchGeo(addressGeo);
   }
 
-  shouldComponentUpdate(nextProps, nextState) { debugger;
-    return this.props.restaurants.length !== nextProps.restaurants.length ? true : false;
-  }
-
   render() { debugger;
     return (
       <div>

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const compareRatings = (firstObj, secondObj) => firstObj.rating - secondObj.rating;
+const sortDesc = (firstObj, secondObj) => secondObj.rating - firstObj.rating;
 
 export const address = (state = '', action) => {
     switch (action.type) {
@@ -62,7 +62,7 @@ export const restaurantsByName = (state = {}, action) => { debugger;
 
 export const getRestaurants = (state) => { debugger;
     const names = state.restaurantNames;
-    return names.map(name => state.restaurantsByName[name]).sort(compareRatings);
+    return names.map(name => state.restaurantsByName[name]).sort(sortDesc);
 };
 
 export const fetchAddress = (state) => {

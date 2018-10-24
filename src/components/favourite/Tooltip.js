@@ -19,7 +19,6 @@ const TooltipWrapper = styled.div`
 // border-radius: 3px;
 
 const Header = styled.div`
-  width: 100%;
   padding: 10px 15px;
   font-size: 18px;
   text-align: left;
@@ -30,7 +29,6 @@ const Label = styled.div`
   width: fit-content;
   margin: 10px 15px;
   font-size: 14px;
-
 `;
 //
 // const Tooltip = (props) => {console.log(props); return (
