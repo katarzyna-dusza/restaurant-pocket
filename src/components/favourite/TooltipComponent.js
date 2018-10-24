@@ -16,12 +16,12 @@ class TooltipComponent extends Component {
       rating: 0,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.setRating = this.setRating.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
   }
 
-  handleChange(event) {
+  handleNameChange(event) {
     this.setState({ name: event.target.value });
   }
 
@@ -44,7 +44,7 @@ class TooltipComponent extends Component {
         <Input
           placeholder="Type restaurant name"
           value={this.state.name}
-          onChange={this.handleChange}
+          onChange={this.handleNameChange}
         />
         <Label>Rate it:</Label>
         <RatingComponent currentRating={this.setRating} />

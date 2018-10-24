@@ -13,10 +13,10 @@ class RatingComponent extends Component {
       rating: 0,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
   }
 
-  handleChange(data) {
+  handleRatingChange(data) {
     this.setState({ rating: data });
     this.props.currentRating(data);
   }
@@ -42,7 +42,7 @@ class RatingComponent extends Component {
           fractions={2}
           emptySymbol={<i className="material-icons">star_border</i>}
           fullSymbol={<i className="material-icons">star</i>}
-          onChange={this.handleChange}
+          onChange={this.handleRatingChange}
           initialRating={this.state.rating}
         />
       </RatingComponentWrapper>

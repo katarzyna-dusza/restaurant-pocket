@@ -21,7 +21,7 @@ class RestaurantsComponent extends Component {
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
-    this.sort = this.sort.bind(this);
+    this.sortRestaurants = this.sortRestaurants.bind(this);
   }
 
   handlePageChange(pageNumber) {
@@ -52,7 +52,7 @@ class RestaurantsComponent extends Component {
     );
   }
 
-  sort(event) {
+  sortRestaurants(event) {
     const selectedSorting = event.target.getAttribute('data-type');
 
     this.setState({ sort: selectedSorting });
@@ -61,11 +61,11 @@ class RestaurantsComponent extends Component {
 
   displaySorting() {
     return 'desc' === this.state.sort ? (
-      <i className="material-icons" data-type="asc" onClick={this.sort}>
+      <i className="material-icons" data-type="asc" onClick={this.sortRestaurants}>
         arrow_drop_up
       </i>
     ) : (
-      <i className="material-icons" data-type="desc" onClick={this.sort}>
+      <i className="material-icons" data-type="desc" onClick={this.sortRestaurants}>
         arrow_drop_down
       </i>
     );

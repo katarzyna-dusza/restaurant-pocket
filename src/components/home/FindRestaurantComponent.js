@@ -16,15 +16,15 @@ class FindRestaurantComponent extends Component {
       address: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFind = this.handleFind.bind(this);
+    this.handleAddressChange = this.handleAddressChange.bind(this);
+    this.findRestaurant = this.findRestaurant.bind(this);
   }
 
-  handleChange(event) {
+  handleAddressChange(event) {
     this.setState({ address: event.target.value });
   }
 
-  handleFind() {
+  findRestaurant() {
     const { setAddress, history } = this.props;
 
     setAddress(this.state.address);
@@ -41,9 +41,9 @@ class FindRestaurantComponent extends Component {
             big
             placeholder="Type your address"
             value={this.state.address}
-            onChange={this.handleChange}
+            onChange={this.handleAddressChange}
           />
-          <Button big onClick={this.handleFind}>
+          <Button big onClick={this.findRestaurant}>
             Find
           </Button>
         </FindRestaurantComponentWrapper>
