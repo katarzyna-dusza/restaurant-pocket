@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../redux/actions';
+import background from './background.jpg';
 import {
   Header,
   Input,
   Button,
 } from '../../styles/SharedStyles';
 import { FindRestaurantComponentWrapper, BackgroundImage } from '../../styles/FindRestaurantComponentStyles';
-import * as actions from '../../redux/actions';
-import background from './background.jpg';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class FindRestaurantComponent extends Component {
 
   handleFind() {
     const { setAddress, history } = this.props;
+    
     setAddress(this.state.address);
     history.push('/favourite');
   }

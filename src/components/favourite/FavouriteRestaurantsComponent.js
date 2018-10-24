@@ -11,6 +11,7 @@ class FavouriteRestaurantsComponent extends Component {
   componentDidMount() {
     const { address, fetchGeo } = this.props;
     const addressGeo = address ? address : 'Berlin';
+    
     fetchGeo(addressGeo);
   }
 

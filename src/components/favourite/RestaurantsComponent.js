@@ -49,6 +49,7 @@ class RestaurantsComponent extends Component {
 
   sort(event) {
     const selectedSorting = event.target.getAttribute('data-type');
+    
     this.setState({ sort: selectedSorting });
     this.setState({ restaurants: this.props.restaurants.reverse() });
   }
