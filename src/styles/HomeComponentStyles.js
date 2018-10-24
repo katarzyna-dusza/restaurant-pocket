@@ -7,7 +7,7 @@ export const HomeComponentWrapper = styled.div`
   background-color: white;
   font-size: 40px;
   text-align: center;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .12)
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
 
   > div {
     height: 100%;
