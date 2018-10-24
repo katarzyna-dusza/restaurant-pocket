@@ -8,7 +8,8 @@ const Header = styled.div`
   padding: 10px 15px;
   font-size: 18px;
   text-align: left;
-  border-bottom: 1px solid lightgrey;
+  background-color: #a52420;
+  color: white;
 `;
 
 const Label = styled.div`
@@ -28,6 +29,7 @@ background-color: white;
 font-size: 16px;
 padding: 4px;
 cursor: pointer
+border: 1px solid #a52420;
 
     &:after {
       content: "";
@@ -36,15 +38,11 @@ cursor: pointer
       height: 0;
       border-width: 10px;
       border-style: solid;
-      border-color: #FFFFFF transparent transparent transparent;
-      top: 204px;
+      border-color: #a52420 transparent transparent transparent;
+      top: 208px;
       left: 120px;
     }
 }
-`;
-
-const Rating = styled.div`
-
 `;
 
 class Tooltip extends Component {
@@ -57,7 +55,7 @@ class Tooltip extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.rating = this.rating.bind(this);
+    this.setRating = this.setRating.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
   }
 
@@ -66,24 +64,21 @@ class Tooltip extends Component {
   }
 
   addRestaurant() {
-    console.log(this.state)
-    // const restaurant = {
-    //   name: this.state.name,
-    //   rating: Math.floor(Math.random() * 5) + 1,
-    // };
-    // this.props.addRestaurant(restaurant);
+    const restaurant = {
+      name: this.state.name,
+      rating: this.state.rating,
+    };
+    this.props.addRestaurant(restaurant);
   }
 
-  // rating(event) {
-  //   this.setState({ rating: event });
-  //   console.log(event)
-  //   console.log(this.state)
-  // }
+  setRating(event) {
+    this.setState({ rating: event });
+  }
 
   render() {
     return (
       <TooltipWrapperA>
-        <Header>Do you like the restaurant?</Header>
+        <Header>Do you like that place?</Header>
         <Label>Name it:</Label>
         <Input
           placeholder="Type restaurant name"
@@ -91,7 +86,7 @@ class Tooltip extends Component {
           onChange={this.handleChange}
         />
         <Label>Rate it:</Label>
-        <RatingComponent />
+        <RatingComponent currentRating={this.setRating} />
         <Button onClick={this.addRestaurant}>Add</Button>
       </TooltipWrapperA>
     );

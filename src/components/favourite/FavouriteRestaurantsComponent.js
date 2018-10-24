@@ -6,8 +6,6 @@ import Map from './Map';
 import * as actions from '../../redux/actions';
 import * as reducers from '../../redux/reducers';
 
-import Tooltip from './Tooltip';
-
 const FavouriteRestaurantsWrapper = styled.div`
   height: calc(100vh - 90px);
   width: 20%;

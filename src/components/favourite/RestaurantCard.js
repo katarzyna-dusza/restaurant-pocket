@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import RatingComponent from './RatingComponent';
-// import Rating from 'react-rating';
 
 const RestaurantCardWrapper = styled.div`
   height: 100px;
@@ -32,20 +31,6 @@ const OriginalName = styled.div`
   text-align: left;
 `;
 
-// const Rating = styled.div`
-//   width: 100%;
-//   position: absolute;
-//   bottom: 5px;
-//   right: 5px;
-//   font-family: 'Ubuntu', sans-serif;
-//   font-size: 10px;
-//   text-align: right;
-//
-//   > i {
-//     color: #f4e21a;
-//   }
-// `;
-
 const Icon = styled.div`
   width: 30px;
   display: inline;
@@ -59,15 +44,6 @@ class RestaurantCard extends Component {
   }
 
   render() {
-    const rating = [];
-    for (let i = 0; i < this.props.data.rating; i++) {
-      rating.push(
-        <i key={i} className="material-icons">
-          star
-        </i>,
-      );
-    }
-
     return (
       <RestaurantCardWrapper>
         <Icon>
@@ -79,5 +55,5 @@ class RestaurantCard extends Component {
     );
   }
 }
-// <Rating rating={this.props.data.rating}></Rating>
+
 export default RestaurantCard;

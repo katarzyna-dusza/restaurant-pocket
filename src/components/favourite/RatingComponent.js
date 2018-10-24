@@ -31,8 +31,6 @@ const RatingWrapperSecond = styled.div`
   }
 `;
 
-const MAX_RATING = 5;
-
 class RatingComponent extends Component {
   constructor(props) {
     super(props);
@@ -46,10 +44,10 @@ class RatingComponent extends Component {
 
   handleChange(data) {
     this.setState({rating: data});
-    console.log(this.state);
+    this.props.currentRating(data);
   }
 
-  render() { debugger;
+  render() {
       if (this.props.readonly) {
         return (
           <RatingWrapper>
@@ -65,8 +63,6 @@ class RatingComponent extends Component {
       }
 
       return (
-
-
         <RatingWrapperSecond>
         <Rating
           fractions={2}
@@ -76,20 +72,8 @@ class RatingComponent extends Component {
           initialRating={this.state.rating}
         />
         </RatingWrapperSecond>
-
-
       )
   }
 }
-
-// <RatingWrapperSecond>
-// <Rating
-//   fractions={2}
-//   emptySymbol={<i class="material-icons">star_border</i>}
-//   fullSymbol={<i class="material-icons">star</i>}
-//   onChange={this.handleChange}
-//   initialRating={this.state.rating}
-// />
-// </RatingWrapperSecond>
 
 export default RatingComponent;
