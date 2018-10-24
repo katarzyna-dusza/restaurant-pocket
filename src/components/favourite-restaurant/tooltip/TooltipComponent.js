@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RatingComponent from '../rating/RatingComponent';
-import { Button, Input } from '../../../styles/SharedStyles';
+import { checkName, alreadyExists } from '../../../input-validation';
+import { Button, Input, Alert } from '../../../styles/SharedStyles';
 import {
   TooltipComponentWrapper,
   Header,
@@ -30,10 +31,37 @@ class TooltipComponent extends Component {
 
     const restaurant = { name, rating };
     this.props.addRestaurant(restaurant);
+    this.clearData();
   }
 
   setRating(event) {
     this.setState({ rating: event });
+  }
+
+  clearData() {
+    this.setState({ name: '' });
+    this.setRating(0);
+  }
+
+  displayAlert() {
+    const ALERT_CHAR = `Please, use alphanumeric characters to write name.`;
+    const ALERT_EXISTS = `This name already exists. Please, use another one.`;
+
+    if (checkName(this.state.name)) {
+      return (
+        <Alert>
+          <p>{ALERT_CHAR}</p>
+        </Alert>
+      );
+    }
+
+    return (
+      alreadyExists(this.state.name, this.props.restaurantNames) && (
+        <Alert>
+          <p>{ALERT_EXISTS}</p>
+        </Alert>
+      )
+    );
   }
 
   render() {
@@ -47,8 +75,12 @@ class TooltipComponent extends Component {
           onChange={this.handleNameChange}
         />
         <Label>Rate it:</Label>
-        <RatingComponent currentRating={this.setRating} />
+        <RatingComponent
+          rating={this.state.rating}
+          setRating={this.setRating}
+        />
         <Button onClick={this.addRestaurant}>Add</Button>
+        {this.displayAlert()}
       </TooltipComponentWrapper>
     );
   }

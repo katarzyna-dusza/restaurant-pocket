@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../redux/actions';
+import { checkAddress } from '../../../input-validation';
 import background from './background.jpg';
-import { Input, Button } from '../../../styles/SharedStyles';
+import { Input, Button, Alert } from '../../../styles/SharedStyles';
 import {
   FindRestaurantComponentWrapper,
   BackgroundImage,
@@ -32,6 +33,18 @@ class FindRestaurantComponent extends Component {
     history.push('/favourite');
   }
 
+  displayAlert() {
+    const ALERT = `Please, use alphanumeric characters and optionally '.', ',', '/' to write correct address.`;
+
+    return (
+      checkAddress(this.state.address) && (
+        <Alert home>
+          <p>{ALERT}</p>
+        </Alert>
+      )
+    );
+  }
+
   render() {
     return (
       <BackgroundImage imageSrc={background}>
@@ -47,6 +60,7 @@ class FindRestaurantComponent extends Component {
           <Button big onClick={this.findRestaurant}>
             Find
           </Button>
+          {this.displayAlert()}
         </FindRestaurantComponentWrapper>
       </BackgroundImage>
     );

@@ -1,53 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Rating from 'react-rating';
 import {
   RatingComponentReadOnlyWrapper,
   RatingComponentWrapper,
 } from './RatingComponentStyles';
 
-class RatingComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      rating: 0,
-    };
-
-    this.handleRatingChange = this.handleRatingChange.bind(this);
-  }
-
-  handleRatingChange(data) {
-    this.setState({ rating: data });
-    this.props.currentRating(data);
-  }
-
-  render() {
-    if (this.props.readonly) {
-      return (
-        <RatingComponentReadOnlyWrapper>
-          <Rating
-            fractions={2}
-            emptySymbol={<i className="material-icons">star_border</i>}
-            fullSymbol={<i className="material-icons">star</i>}
-            initialRating={this.props.rating}
-            readonly
-          />
-        </RatingComponentReadOnlyWrapper>
-      );
-    }
-
+const RatingComponent = (props) => {
+  if (props.readonly) {
     return (
-      <RatingComponentWrapper>
+      <RatingComponentReadOnlyWrapper>
         <Rating
           fractions={2}
           emptySymbol={<i className="material-icons">star_border</i>}
           fullSymbol={<i className="material-icons">star</i>}
-          onChange={this.handleRatingChange}
-          initialRating={this.state.rating}
+          initialRating={props.rating}
+          readonly
         />
-      </RatingComponentWrapper>
+      </RatingComponentReadOnlyWrapper>
     );
   }
-}
+
+  return (
+    <RatingComponentWrapper>
+      <Rating
+        fractions={2}
+        emptySymbol={<i className="material-icons">star_border</i>}
+        fullSymbol={<i className="material-icons">star</i>}
+        onChange={props.setRating}
+        initialRating={props.rating}
+      />
+    </RatingComponentWrapper>
+  );
+};
 
 export default RatingComponent;

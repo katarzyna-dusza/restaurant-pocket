@@ -62,6 +62,8 @@ export const getRestaurants = (state) => {
   return names.map((name) => state.restaurantsByName[name]).sort(sortDesc);
 };
 
+export const getRestaurantNames = (state) => state.restaurantNames;
+
 export const fetchAddress = (state) => state.address;
 
 export const fetchGeo = (state) => state.geo;

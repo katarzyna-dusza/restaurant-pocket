@@ -48,3 +48,30 @@ export const Input = styled.input`
     font-family: 'Ubuntu', sans-serif;
   }
 `;
+
+export const Alert = styled.div`
+  height: 65px;
+  width: ${(props) => (props.home ? 'calc(80% + 20px);' : '100%')};
+  margin: 0;
+  position: relative;
+  top: ${(props) => (props.home ? '70px' : '-250px')};
+  background: rgba(165, 36, 32,0.8);
+  border-radius: 3px;
+  animation-name: show;
+  animation-duration: 1.5s;
+
+  @keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  > p {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    position: absolute;
+    color: white;
+    text-align: center;
+    transition: opacity 2s;
+  }
+`;

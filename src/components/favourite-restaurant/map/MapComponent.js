@@ -19,6 +19,7 @@ const MapComponent = (props) => (
         lat={props.geo.lat}
         lng={props.geo.lng}
         addRestaurant={props.addRestaurant}
+        restaurantNames={props.restaurantNames}
       />
     </GoogleMapReact>
   </MapComponentWrapper>
