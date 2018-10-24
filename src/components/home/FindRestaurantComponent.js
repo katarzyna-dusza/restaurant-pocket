@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import {
   BackgroundImage,
   Header,
   Input,
   Button,
 } from '../../shared/components';
-import background from './background.jpg';
 import * as actions from '../../redux/actions';
+import background from './background.jpg';
 
 const FindWrapper = styled.div`
   width: 50%;
   margin-left: 20%;
   padding: 5%;
-  top: 20%;
   position: relative;
+  top: 20%;
 `;
 
-class FindRestaurant extends Component {
+class FindRestaurantComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -64,9 +64,9 @@ class FindRestaurant extends Component {
 
 export const mapStateToProps = (state, {}) => ({});
 
-FindRestaurant = connect(
+FindRestaurantComponent = connect(
   mapStateToProps,
   actions,
-)(FindRestaurant);
+)(FindRestaurantComponent);
 
-export default FindRestaurant;
+export default FindRestaurantComponent;

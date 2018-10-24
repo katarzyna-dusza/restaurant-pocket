@@ -61,13 +61,9 @@ export const getRestaurants = (state) => {
   return names.map((name) => state.restaurantsByName[name]).sort(sortDesc);
 };
 
-export const fetchAddress = (state) => {
-  return state.address;
-};
+export const fetchAddress = (state) => state.address;
 
-export const fetchGeo = (state) => {
-  return state.geo;
-};
+export const fetchGeo = (state) => state.geo;
 
 const reducers = combineReducers({
   address,

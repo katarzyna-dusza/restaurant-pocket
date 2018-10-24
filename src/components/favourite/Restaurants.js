@@ -32,7 +32,7 @@ const PaginationWrapper = styled.div`
     width: 100%;
     margin: auto;
     padding: 0;
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
     bottom: 30px;
     list-style: none;
@@ -40,14 +40,16 @@ const PaginationWrapper = styled.div`
     justify-content: center;
 
     > li {
-      margin: 0 5px;
+      padding: 0 5px;
+      border: 1px solid white;
+      background-color: #a52420;
 
       &.active > a {
         font-weight: bold;
       }
 
       a {
-        color: #a51a1a;
+        color: white;
         text-decoration: none;
       }
     }
@@ -62,6 +64,7 @@ const Header = styled.div`
 
   > i {
     float: right;
+    cursor: pointer;
   }
 `;
 
@@ -145,7 +148,7 @@ class Restaurants extends Component {
       <RestaurantsWrapper>
         <Header>
           Your restaurants
-          {this.displaySorting()}
+          {this.props.restaurants.length > 1 ? this.displaySorting() : ''}
         </Header>
         {this.paginateData(restaurantList)}
         <PaginationWrapper>{this.displayPagination()}</PaginationWrapper>

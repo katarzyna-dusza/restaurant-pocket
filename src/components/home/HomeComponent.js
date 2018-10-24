@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FindRestaurant from './FindRestaurant';
+import FindRestaurantComponent from './FindRestaurantComponent';
 
 const FindRestaurantWrapper = styled.div`
   height: calc(100vh - 90px);
@@ -19,7 +19,7 @@ const FindRestaurantWrapper = styled.div`
 
 const HomeComponent = (props) => (
   <FindRestaurantWrapper>
-    <FindRestaurant history={props.history} />
+    <FindRestaurantComponent history={props.history} />
   </FindRestaurantWrapper>
 );
 
