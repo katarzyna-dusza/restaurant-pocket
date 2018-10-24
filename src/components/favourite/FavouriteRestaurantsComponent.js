@@ -38,13 +38,13 @@ class FavouriteRestaurantsComponent extends Component {
     super(props);
   }
 
-  componentDidMount() { debugger;
+  componentDidMount() {
     const { address, fetchGeo } = this.props;
     const addressGeo = address ? address : 'Berlin';
     fetchGeo(addressGeo);
   }
 
-  render() { debugger;
+  render() {
     return (
       <div>
         <FavouriteRestaurantsWrapper>
@@ -57,9 +57,6 @@ class FavouriteRestaurantsComponent extends Component {
     );
   }
 }
-
-  //<Map address={this.props.address} geo={this.props.geo} />
-  // <Tooltip />
 
 export const mapStateToProps = (state, { history }) => ({
     address: reducers.fetchAddress(state),

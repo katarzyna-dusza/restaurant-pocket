@@ -3,21 +3,6 @@ import styled from 'styled-components';
 import { Button, Input } from '../../shared/components';
 import * as actions from '../../redux/actions';
 
-const TooltipWrapper = styled.div`
-  height: 15px;
-  width: 15px;
-  margin-bottom: 130px;
-  background-color: white;
-  box-shadow: 0 0 2px rgba(0,0,0,.12);
-  border-radius: 3px;
-`;
-//
-// height: 200px;
-// width: 400px;
-// background-color: white;
-// box-shadow: 0 0 2px rgba(0,0,0,.12);
-// border-radius: 3px;
-
 const Header = styled.div`
   padding: 10px 15px;
   font-size: 18px;
@@ -30,14 +15,6 @@ const Label = styled.div`
   margin: 10px 15px;
   font-size: 14px;
 `;
-//
-// const Tooltip = (props) => {console.log(props); return (
-//   <div className="hint hint--html hint--info hint--top">
-//     <div style={{width: 80}} className="hint__content">
-//       Сlick me
-//     </div>
-//   </div>
-// )}
 
 const TooltipWrapperA = styled.div`
 position: relative;

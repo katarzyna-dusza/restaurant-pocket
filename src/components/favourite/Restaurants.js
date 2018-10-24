@@ -70,7 +70,6 @@ class Restaurants extends Component {
     super(props);
 
     this.state = {
-      // restaurants: this.props.restaurants.length !== 1 ? this.props.restaurants.sort(this.compareRatings) : this.props.restaurants,
       activePage: 1,
       sort: 'desc'
     }

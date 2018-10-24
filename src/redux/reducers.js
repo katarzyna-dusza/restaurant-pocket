@@ -48,7 +48,7 @@ export const restaurantNames = (state = [], action) => {
     }
 };
 
-export const restaurantsByName = (state = {}, action) => { debugger;
+export const restaurantsByName = (state = {}, action) => { 
     switch (action.type) {
         case 'RESTAURANT_ADDED':
             return {
@@ -60,7 +60,7 @@ export const restaurantsByName = (state = {}, action) => { debugger;
     }
 };
 
-export const getRestaurants = (state) => { debugger;
+export const getRestaurants = (state) => { 
     const names = state.restaurantNames;
     return names.map(name => state.restaurantsByName[name]).sort(sortDesc);
 };
