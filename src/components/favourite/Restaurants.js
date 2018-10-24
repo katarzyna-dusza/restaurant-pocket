@@ -6,6 +6,12 @@ import RestaurantCard from './RestaurantCard';
 const ITEMS_PER_PAGE = 5;
 const MAX_PAGINATION_RANGE = 3;
 
+const Empty = styled.div`
+  margin-top: 50px;
+  font-size: 16px;
+  color: grey;
+`;
+
 const RestaurantsWrapper = styled.div`
   height: calc(100vh - 90px);
   margin-top: 20px;
@@ -64,7 +70,7 @@ class Restaurants extends Component {
     super(props);
 
     this.state = {
-      restaurants: this.props.restaurants.sort(this.compareRatings),
+      // restaurants: this.props.restaurants.length !== 1 ? this.props.restaurants.sort(this.compareRatings) : this.props.restaurants,
       activePage: 1,
       sort: 'desc'
     }
@@ -86,10 +92,10 @@ class Restaurants extends Component {
   }
 
   displayPagination() {
-    return this.state.restaurants.length > ITEMS_PER_PAGE
+    return this.props.restaurants.length > ITEMS_PER_PAGE
       ? <Pagination
             activePage={this.state.activePage}
-            totalItemsCount={this.state.restaurants.length}
+            totalItemsCount={this.props.restaurants.length}
             itemsCountPerPage={ITEMS_PER_PAGE}
             pageRangeDisplayed={MAX_PAGINATION_RANGE}
             onChange={this.handlePageChange}
@@ -102,7 +108,7 @@ class Restaurants extends Component {
   sort(event) {
     const selectedSorting = event.target.getAttribute("data-type");
     this.setState({ sort: selectedSorting });
-    this.setState({ restaurants: this.state.restaurants.reverse() });
+    this.setState({ restaurants: this.props.restaurants.reverse() });
   }
 
   displaySorting() {
@@ -116,13 +122,15 @@ class Restaurants extends Component {
   }
 
   render() {
-    const restaurantList = this.state.restaurants.map((r, i) =>
+    const restaurantList = this.props.restaurants.map((r, i) =>
       <RestaurantCard key={i} data={r}></RestaurantCard>
     );
 
-    if (0 === this.state.restaurants.length) {
+    if (0 === this.props.restaurants.length) {
       return (
-        <div>Pusto</div>
+        <RestaurantsWrapper>
+          <Empty>No favourite restaurants</Empty>
+        </RestaurantsWrapper>
       )
     }
 

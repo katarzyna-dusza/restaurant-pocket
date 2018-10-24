@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { BackgroundImage, Header, FindInput, Button } from '../../shared/components';
+import { BackgroundImage, Header, Input, Button } from '../../shared/components';
 import background from './background.jpg';
 import * as actions from '../../redux/actions';
-import reducers, { getAddress } from '../../redux/reducers';
 
 const FindWrapper = styled.div`
   width: 50%;
@@ -43,7 +42,7 @@ class FindRestaurant extends Component {
         <FindWrapper>
           <Header big>Find your favourite restaurant</Header>
           <Header>Taste your perfect meal</Header>
-          <FindInput placeholder="Type your address" value={this.state.address} onChange={this.handleChange}></FindInput>
+          <Input big placeholder="Type your address" value={this.state.address} onChange={this.handleChange} />
           <Button big onClick={this.handleFind}>Find</Button>
         </FindWrapper>
       </BackgroundImage>

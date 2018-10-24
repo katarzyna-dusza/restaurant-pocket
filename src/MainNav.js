@@ -1,10 +1,11 @@
 import React from 'react';
-import { Icon, AppName } from './shared/components'
+import { Icon, AppName } from './shared/components';
+import { Link } from 'react-router-dom';
 
 const MainNav = () => (
   <div>
-    <Icon left>
-      <i className="material-icons">restaurant</i>
+    <Icon left link>
+      <Link to='/'><i className="material-icons">restaurant</i></Link>
     </Icon>
     <AppName>Favourite Restaurant</AppName>
     <Icon right>
