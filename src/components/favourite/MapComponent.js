@@ -13,7 +13,7 @@ const MapComponent = (props) => (
     <GoogleMapReact
       bootstrapURLKeys={{ key: API_KEY }}
       center={props.geo}
-      defaultCenter={{lat: DEFAULT_LAT, lng: DEFAULT_LNG}}
+      defaultCenter={{ lat: DEFAULT_LAT, lng: DEFAULT_LNG }}
       defaultZoom={DEFAULT_ZOOM}>
       <TooltipComponent
         lat={props.geo.lat}

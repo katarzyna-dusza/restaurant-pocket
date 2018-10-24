@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
 import Rating from 'react-rating';
-import { RatingComponentReadOnlyWrapper, RatingComponentWrapper } from '../../styles/RatingComponentStyles';
+import {
+  RatingComponentReadOnlyWrapper,
+  RatingComponentWrapper,
+} from '../../styles/RatingComponentStyles';
 
 class RatingComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      rating: 0
-    }
+      rating: 0,
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(data) {
-    this.setState({rating: data});
+    this.setState({ rating: data });
     this.props.currentRating(data);
   }
 
   render() {
-      if (this.props.readonly) {
-        return (
-          <RatingComponentReadOnlyWrapper>
+    if (this.props.readonly) {
+      return (
+        <RatingComponentReadOnlyWrapper>
           <Rating
             fractions={2}
             emptySymbol={<i className="material-icons">star_border</i>}
@@ -29,12 +32,12 @@ class RatingComponent extends Component {
             initialRating={this.props.rating}
             readonly
           />
-          </RatingComponentReadOnlyWrapper>
-        )
-      }
+        </RatingComponentReadOnlyWrapper>
+      );
+    }
 
-      return (
-        <RatingComponentWrapper>
+    return (
+      <RatingComponentWrapper>
         <Rating
           fractions={2}
           emptySymbol={<i className="material-icons">star_border</i>}
@@ -42,8 +45,8 @@ class RatingComponent extends Component {
           onChange={this.handleChange}
           initialRating={this.state.rating}
         />
-        </RatingComponentWrapper>
-      )
+      </RatingComponentWrapper>
+    );
   }
 }
 

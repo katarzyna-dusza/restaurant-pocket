@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Pagination from 'react-js-pagination';
 import RestaurantCardComponent from './RestaurantCardComponent';
-import { RestaurantsComponentWrapper, PaginationWrapper, EmptyList, Header } from '../../styles/RestaurantsComponentStyles';
+import {
+  RestaurantsComponentWrapper,
+  PaginationWrapper,
+  EmptyList,
+  Header,
+} from '../../styles/RestaurantsComponentStyles';
 
 const ITEMS_PER_PAGE = 5;
 const MAX_PAGINATION_RANGE = 3;
@@ -49,7 +54,7 @@ class RestaurantsComponent extends Component {
 
   sort(event) {
     const selectedSorting = event.target.getAttribute('data-type');
-    
+
     this.setState({ sort: selectedSorting });
     this.setState({ restaurants: this.props.restaurants.reverse() });
   }

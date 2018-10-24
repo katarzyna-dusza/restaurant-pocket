@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import RatingComponent from './RatingComponent';
 import { Button, Input } from '../../styles/SharedStyles';
-import { TooltipComponentWrapper, Header, Label } from '../../styles/TooltipComponentStyles';
+import {
+  TooltipComponentWrapper,
+  Header,
+  Label,
+} from '../../styles/TooltipComponentStyles';
 
 class TooltipComponent extends Component {
   constructor(props) {
@@ -23,7 +27,7 @@ class TooltipComponent extends Component {
 
   addRestaurant() {
     const { name, rating } = this.state;
-    
+
     const restaurant = { name, rating };
     this.props.addRestaurant(restaurant);
   }

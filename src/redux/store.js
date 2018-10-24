@@ -5,6 +5,6 @@ import reducers from './reducers';
 
 export const configureStore = () => {
   const middlewares = [thunkMiddleware, createLogger()];
-  
+
   return createStore(reducers, applyMiddleware(...middlewares));
 };

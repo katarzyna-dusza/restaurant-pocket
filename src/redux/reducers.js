@@ -58,7 +58,7 @@ export const restaurantsByName = (state = {}, action) => {
 
 export const getRestaurants = (state) => {
   const names = state.restaurantNames;
-  
+
   return names.map((name) => state.restaurantsByName[name]).sort(sortDesc);
 };
 

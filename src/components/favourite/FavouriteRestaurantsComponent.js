@@ -4,14 +4,16 @@ import RestaurantsComponent from './RestaurantsComponent';
 import MapComponent from './MapComponent';
 import * as actions from '../../redux/actions';
 import * as reducers from '../../redux/reducers';
-import { FavouriteRestaurantsWrapper, MapWrapper } from '../../styles/FavouriteRestaurantsComponentStyles';
-
+import {
+  FavouriteRestaurantsWrapper,
+  MapWrapper,
+} from '../../styles/FavouriteRestaurantsComponentStyles';
 
 class FavouriteRestaurantsComponent extends Component {
   componentDidMount() {
     const { address, fetchGeo } = this.props;
     const addressGeo = address ? address : 'Berlin';
-    
+
     fetchGeo(addressGeo);
   }
 
