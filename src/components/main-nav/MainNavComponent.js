@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../../styles/SharedStyles';
-import {
-  MainNavComponentWrapper,
-  AppName,
-} from './MainNavComponentStyles';
+import { MainNavComponentWrapper, AppName } from './MainNavComponentStyles';
 
 const MainNavComponent = () => (
   <MainNavComponentWrapper>
