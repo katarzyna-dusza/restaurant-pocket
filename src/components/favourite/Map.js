@@ -10,13 +10,12 @@ const Map = (props) => (
   <div style={{ height: '100vh', width: '100%' }}>
     <GoogleMapReact
       bootstrapURLKeys={{ key: API_KEY }}
-      center={ props.geo }
-      defaultZoom={15}
-    >
+      center={props.geo}
+      defaultZoom={15}>
       <Tooltip
-        lat={ props.geo.lat }
-        lng={ props.geo.lng }
-        addRestaurant={ props.addRestaurant }
+        lat={props.geo.lat}
+        lng={props.geo.lng}
+        addRestaurant={props.addRestaurant}
       />
     </GoogleMapReact>
   </div>

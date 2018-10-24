@@ -19,7 +19,7 @@ const FindRestaurantWrapper = styled.div`
 
 const HomeComponent = (props) => (
   <FindRestaurantWrapper>
-    <FindRestaurant history={ props.history }></FindRestaurant>
+    <FindRestaurant history={props.history} />
   </FindRestaurantWrapper>
 );
 

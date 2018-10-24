@@ -6,7 +6,7 @@ const RestaurantCardWrapper = styled.div`
   margin: 5px 0;
   padding: 5px 10px;
   position: relative;
-  box-shadow: 0 0 2px rgba(0,0,0,.12);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
   background-color: white;
   border-bottom: 1px solid lightgrey;
   font-family: 'Ubuntu', sans-serif;
@@ -59,16 +59,22 @@ class RestaurantCard extends Component {
   render() {
     const rating = [];
     for (let i = 0; i < this.props.data.rating; i++) {
-      rating.push(<i key={i} className="material-icons">star</i>);
+      rating.push(
+        <i key={i} className="material-icons">
+          star
+        </i>,
+      );
     }
 
     return (
       <RestaurantCardWrapper>
-        <Icon><i className="material-icons">fastfood</i></Icon>
-        <Name>{ this.props.data.name }</Name>
-        <Rating>{ rating }</Rating>
+        <Icon>
+          <i className="material-icons">fastfood</i>
+        </Icon>
+        <Name>{this.props.data.name}</Name>
+        <Rating>{rating}</Rating>
       </RestaurantCardWrapper>
-    )
+    );
   }
 }
 

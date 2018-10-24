@@ -21,7 +21,7 @@ const MapWrapper = styled.div`
   height: calc(100vh - 90px);
   width: 78%;
   margin-top: 20px;
-  box-shadow: 0 0 2px rgba(0,0,0,.12);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
   background-color: white;
   font-size: 40px;
   text-align: center;
@@ -48,10 +48,14 @@ class FavouriteRestaurantsComponent extends Component {
     return (
       <div>
         <FavouriteRestaurantsWrapper>
-          <Restaurants restaurants={this.props.restaurants}></Restaurants>
+          <Restaurants restaurants={this.props.restaurants} />
         </FavouriteRestaurantsWrapper>
         <MapWrapper>
-          <Map address={this.props.address} geo={this.props.geo} addRestaurant={this.props.addRestaurant} />
+          <Map
+            address={this.props.address}
+            geo={this.props.geo}
+            addRestaurant={this.props.addRestaurant}
+          />
         </MapWrapper>
       </div>
     );
@@ -59,14 +63,14 @@ class FavouriteRestaurantsComponent extends Component {
 }
 
 export const mapStateToProps = (state, { history }) => ({
-    address: reducers.fetchAddress(state),
-    geo: reducers.fetchGeo(state),
-    restaurants: reducers.getRestaurants(state)
+  address: reducers.fetchAddress(state),
+  geo: reducers.fetchGeo(state),
+  restaurants: reducers.getRestaurants(state),
 });
 
 FavouriteRestaurantsComponent = connect(
-    mapStateToProps,
-    actions
+  mapStateToProps,
+  actions,
 )(FavouriteRestaurantsComponent);
 
 export default FavouriteRestaurantsComponent;

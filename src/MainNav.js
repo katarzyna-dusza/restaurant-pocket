@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 const MainNav = () => (
   <div>
     <Icon left link>
-      <Link to='/'><i className="material-icons">restaurant</i></Link>
+      <Link to="/">
+        <i className="material-icons">restaurant</i>
+      </Link>
     </Icon>
     <AppName>Favourite Restaurant</AppName>
     <Icon right>

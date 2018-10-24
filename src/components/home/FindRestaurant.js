@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { BackgroundImage, Header, Input, Button } from '../../shared/components';
+import {
+  BackgroundImage,
+  Header,
+  Input,
+  Button,
+} from '../../shared/components';
 import background from './background.jpg';
 import * as actions from '../../redux/actions';
 
@@ -19,15 +24,15 @@ class FindRestaurant extends Component {
     super(props);
 
     this.state = {
-      address: ''
-    }
+      address: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleFind = this.handleFind.bind(this);
   }
 
   handleChange(event) {
-    this.setState({address: event.target.value});
+    this.setState({ address: event.target.value });
   }
 
   handleFind() {
@@ -42,8 +47,15 @@ class FindRestaurant extends Component {
         <FindWrapper>
           <Header big>Find your favourite restaurant</Header>
           <Header>Taste your perfect meal</Header>
-          <Input big placeholder="Type your address" value={this.state.address} onChange={this.handleChange} />
-          <Button big onClick={this.handleFind}>Find</Button>
+          <Input
+            big
+            placeholder="Type your address"
+            value={this.state.address}
+            onChange={this.handleChange}
+          />
+          <Button big onClick={this.handleFind}>
+            Find
+          </Button>
         </FindWrapper>
       </BackgroundImage>
     );
@@ -53,8 +65,8 @@ class FindRestaurant extends Component {
 export const mapStateToProps = (state, {}) => ({});
 
 FindRestaurant = connect(
-    mapStateToProps,
-    actions
+  mapStateToProps,
+  actions,
 )(FindRestaurant);
 
 export default FindRestaurant;

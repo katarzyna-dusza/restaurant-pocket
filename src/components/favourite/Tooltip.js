@@ -56,8 +56,8 @@ class Tooltip extends Component {
 
     this.state = {
       name: '',
-      rating: 0
-    }
+      rating: 0,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
@@ -70,8 +70,8 @@ class Tooltip extends Component {
   addRestaurant() {
     const restaurant = {
       name: this.state.name,
-      rating: Math.floor(Math.random() * 5) + 1
-    }
+      rating: Math.floor(Math.random() * 5) + 1,
+    };
     this.props.addRestaurant(restaurant);
   }
 
@@ -80,7 +80,11 @@ class Tooltip extends Component {
       <TooltipWrapperA>
         <Header>Do you like the restaurant?</Header>
         <Label>Name it:</Label>
-        <Input placeholder="Type restaurant name" value={this.state.name} onChange={this.handleChange}></Input>
+        <Input
+          placeholder="Type restaurant name"
+          value={this.state.name}
+          onChange={this.handleChange}
+        />
         <Label>Rate it:</Label>
         <Rating>
           <i className="material-icons">star</i>
