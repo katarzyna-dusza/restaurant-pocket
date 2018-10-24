@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RestaurantsComponent from './restaurants/RestaurantsComponent';
-import TooltipComponent from './tooltip/TooltipComponent';
 import MapComponent from './map/MapComponent';
 import * as actions from '../../redux/actions';
 import * as reducers from '../../redux/reducers';
