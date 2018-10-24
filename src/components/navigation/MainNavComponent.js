@@ -1,9 +1,10 @@
 import React from 'react';
-import { Icon, AppName } from './shared/components';
 import { Link } from 'react-router-dom';
+import { Icon } from '../../styles/SharedStyles';
+import { MainNavComponentWrapper, AppName } from '../../styles/MainNavComponentStyles';
 
-const MainNav = () => (
-  <div>
+const MainNavComponent = () => (
+  <MainNavComponentWrapper>
     <Icon left link>
       <Link to="/">
         <i className="material-icons">restaurant</i>
@@ -13,7 +14,7 @@ const MainNav = () => (
     <Icon right>
       <i className="material-icons">person_outline</i>
     </Icon>
-  </div>
+  </MainNavComponentWrapper>
 );
 
-export default MainNav;
+export default MainNavComponent;

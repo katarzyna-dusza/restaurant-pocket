@@ -17,14 +17,6 @@ export const Icon = styled.div`
   }
 `;
 
-export const AppName = styled.span`
-  margin-left: 20px;
-  line-height: 70px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 22px;
-  color: white;
-`;
-
 export const Button = styled.button`
   height: ${(props) => (props.big ? '65px' : '40px')};
   width: ${(props) => (props.big ? '15%' : 'fit-content')};
@@ -41,16 +33,6 @@ export const Button = styled.button`
   bottom: ${(props) => (props.big ? 'none' : '10px')};
   right: ${(props) => (props.big ? 'none' : '10px')};
   position: ${(props) => (props.big ? 'initial' : 'absolute')};
-`;
-
-export const BackgroundImage = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: ${(props) =>
-    props.imageSrc ? `url(${props.imageSrc})` : 'white'};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 export const Header = styled.h3`

@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import {
-  BackgroundImage,
   Header,
   Input,
   Button,
-} from '../../shared/components';
+} from '../../styles/SharedStyles';
+import { FindRestaurantComponentWrapper, BackgroundImage } from '../../styles/FindRestaurantComponentStyles';
 import * as actions from '../../redux/actions';
 import background from './background.jpg';
-
-const FindWrapper = styled.div`
-  width: 50%;
-  margin-left: 20%;
-  padding: 5%;
-  position: relative;
-  top: 20%;
-`;
 
 class FindRestaurantComponent extends Component {
   constructor(props) {
@@ -36,15 +26,15 @@ class FindRestaurantComponent extends Component {
   }
 
   handleFind() {
-    const { setAddress } = this.props;
+    const { setAddress, history } = this.props;
     setAddress(this.state.address);
-    this.props.history.push('/favourite');
+    history.push('/favourite');
   }
 
   render() {
     return (
       <BackgroundImage imageSrc={background}>
-        <FindWrapper>
+        <FindRestaurantComponentWrapper>
           <Header big>Find your favourite restaurant</Header>
           <Header>Taste your perfect meal</Header>
           <Input
@@ -56,13 +46,13 @@ class FindRestaurantComponent extends Component {
           <Button big onClick={this.handleFind}>
             Find
           </Button>
-        </FindWrapper>
+        </FindRestaurantComponentWrapper>
       </BackgroundImage>
     );
   }
 }
 
-export const mapStateToProps = (state, {}) => ({});
+export const mapStateToProps = (state, {history}) => ({});
 
 FindRestaurantComponent = connect(
   mapStateToProps,

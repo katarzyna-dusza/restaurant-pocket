@@ -1,35 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import Rating from 'react-rating';
-
-const RatingWrapper = styled.div`
-  width: 100%;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  display: flex;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 10px;
-  text-align: right;
-
-  i {
-    color: #f4e21a;
-  }
-`;
-
-const RatingWrapperSecond = styled.div`
-  width: 100%;
-  font-family: 'Ubuntu', sans-serif;
-  text-align: left;
-  font-size: 10px;
-  margin: 0 12px;
-
-  i {
-    color: #f4e21a;
-    font-size: 30px;
-  }
-`;
+import { RatingComponentReadOnlyWrapper, RatingComponentWrapper } from '../../styles/RatingComponentStyles';
 
 class RatingComponent extends Component {
   constructor(props) {
@@ -50,7 +21,7 @@ class RatingComponent extends Component {
   render() {
       if (this.props.readonly) {
         return (
-          <RatingWrapper>
+          <RatingComponentReadOnlyWrapper>
           <Rating
             fractions={2}
             emptySymbol={<i className="material-icons">star_border</i>}
@@ -58,12 +29,12 @@ class RatingComponent extends Component {
             initialRating={this.props.rating}
             readonly
           />
-          </RatingWrapper>
+          </RatingComponentReadOnlyWrapper>
         )
       }
 
       return (
-        <RatingWrapperSecond>
+        <RatingComponentWrapper>
         <Rating
           fractions={2}
           emptySymbol={<i className="material-icons">star_border</i>}
@@ -71,7 +42,7 @@ class RatingComponent extends Component {
           onChange={this.handleChange}
           initialRating={this.state.rating}
         />
-        </RatingWrapperSecond>
+        </RatingComponentWrapper>
       )
   }
 }
