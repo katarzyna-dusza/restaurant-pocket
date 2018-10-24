@@ -26,3 +26,20 @@ export const AppName = styled.span`
   font-size: 22px;
   color: white;
 `;
+
+export const Icon = styled.div`
+  margin-left: ${(props) => (props.left ? '25px' : '0')};
+  margin-right: ${(props) => (props.right ? '25px' : '0')};
+  float: ${(props) => (props.right ? 'right' : 'left')};
+  color: white;
+  cursor: ${(props) => (props.link ? 'pointer' : 'auto')};
+
+  i {
+    font-size: 40px;
+    line-height: 70px;
+  }
+
+  a {
+    color: white;
+  }
+`;

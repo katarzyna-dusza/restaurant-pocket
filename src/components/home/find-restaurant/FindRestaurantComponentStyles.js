@@ -17,3 +17,13 @@ export const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
+export const HomeHeader = styled.h3`
+  margin-top: 0;
+  margin-bottom: ${(props) => (props.big ? '10px' : '50px')};
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: ${(props) => (props.big ? '50px' : '20px')};
+  font-weight: ${(props) => (props.big ? '400' : '300')};
+  font-style: ${(props) => (props.big ? 'initial' : 'italic')};
+`;

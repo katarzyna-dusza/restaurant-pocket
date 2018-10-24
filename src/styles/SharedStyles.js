@@ -1,19 +1,14 @@
 import styled from 'styled-components';
 
-export const Icon = styled.div`
-  margin-left: ${(props) => (props.left ? '25px' : '0')};
-  margin-right: ${(props) => (props.right ? '25px' : '0')};
-  float: ${(props) => (props.right ? 'right' : 'left')};
-  color: white;
-  cursor: ${(props) => (props.link ? 'pointer' : 'auto')};
+export const MainComponentWrapper = styled.div`
+  height: calc(100vh - 90px);
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
 
-  i {
-    font-size: 40px;
-    line-height: 70px;
-  }
-
-  a {
-    color: white;
+  > div {
+    height: ${(props) => (props.home ? '100%' : '')};
+    width: ${(props) => (props.home ? '100%' : '')};
   }
 `;
 
@@ -33,16 +28,6 @@ export const Button = styled.button`
   bottom: ${(props) => (props.big ? 'none' : '10px')};
   right: ${(props) => (props.big ? 'none' : '10px')};
   position: ${(props) => (props.big ? 'initial' : 'absolute')};
-`;
-
-export const Header = styled.h3`
-  margin-top: 0;
-  margin-bottom: ${(props) => (props.big ? '10px' : '50px')};
-  color: white;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: ${(props) => (props.big ? '50px' : '20px')};
-  font-weight: ${(props) => (props.big ? '400' : '300')};
-  font-style: ${(props) => (props.big ? 'initial' : 'italic')};
 `;
 
 export const Input = styled.input`

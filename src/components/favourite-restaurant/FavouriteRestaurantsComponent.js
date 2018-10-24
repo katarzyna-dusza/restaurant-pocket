@@ -4,9 +4,10 @@ import RestaurantsComponent from './restaurants/RestaurantsComponent';
 import MapComponent from './map/MapComponent';
 import * as actions from '../../redux/actions';
 import * as reducers from '../../redux/reducers';
+import { MainComponentWrapper } from '../../styles/SharedStyles';
 import {
-  FavouriteRestaurantsWrapper,
   MapWrapper,
+  RestaurantsWrapper,
 } from './FavouriteRestaurantsComponentStyles';
 
 class FavouriteRestaurantsComponent extends Component {
@@ -19,10 +20,10 @@ class FavouriteRestaurantsComponent extends Component {
 
   render() {
     return (
-      <div>
-        <FavouriteRestaurantsWrapper>
+      <MainComponentWrapper>
+        <RestaurantsWrapper>
           <RestaurantsComponent restaurants={this.props.restaurants} />
-        </FavouriteRestaurantsWrapper>
+        </RestaurantsWrapper>
         <MapWrapper>
           <MapComponent
             address={this.props.address}
@@ -30,7 +31,7 @@ class FavouriteRestaurantsComponent extends Component {
             addRestaurant={this.props.addRestaurant}
           />
         </MapWrapper>
-      </div>
+      </MainComponentWrapper>
     );
   }
 }

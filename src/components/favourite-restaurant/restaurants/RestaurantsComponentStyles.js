@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const RestaurantsComponentWrapper = styled.div`
-  height: calc(100vh - 90px);
-  margin-top: 20px;
   font-size: 40px;
   text-align: center;
 `;

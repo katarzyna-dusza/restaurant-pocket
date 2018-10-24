@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../redux/actions';
 import background from './background.jpg';
-import { Header, Input, Button } from '../../../styles/SharedStyles';
+import { Input, Button } from '../../../styles/SharedStyles';
 import {
   FindRestaurantComponentWrapper,
   BackgroundImage,
+  HomeHeader,
 } from './FindRestaurantComponentStyles';
 
 class FindRestaurantComponent extends Component {
@@ -35,8 +36,8 @@ class FindRestaurantComponent extends Component {
     return (
       <BackgroundImage imageSrc={background}>
         <FindRestaurantComponentWrapper>
-          <Header big>Find your favourite restaurant</Header>
-          <Header>Taste your perfect meal</Header>
+          <HomeHeader big>Find your favourite restaurant</HomeHeader>
+          <HomeHeader>Taste your perfect meal</HomeHeader>
           <Input
             big
             placeholder="Type your address"
