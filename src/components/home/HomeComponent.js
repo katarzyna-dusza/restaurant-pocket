@@ -1,6 +1,6 @@
 import React from 'react';
-import FindRestaurantComponent from './FindRestaurantComponent';
-import { HomeComponentWrapper } from '../../styles/HomeComponentStyles';
+import FindRestaurantComponent from './find-restaurant/FindRestaurantComponent';
+import { HomeComponentWrapper } from './HomeComponentStyles';
 
 const HomeComponent = (props) => (
   <HomeComponentWrapper>

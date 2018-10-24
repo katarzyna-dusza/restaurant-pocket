@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Pagination from 'react-js-pagination';
-import RestaurantCardComponent from './RestaurantCardComponent';
+import RestaurantCardComponent from '../restaurant-card/RestaurantCardComponent';
 import {
   RestaurantsComponentWrapper,
   PaginationWrapper,
   EmptyList,
   Header,
-} from '../../styles/RestaurantsComponentStyles';
+} from './RestaurantsComponentStyles';
 
 const ITEMS_PER_PAGE = 5;
 const MAX_PAGINATION_RANGE = 3;

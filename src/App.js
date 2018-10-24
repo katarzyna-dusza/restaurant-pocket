@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import MainNavComponent from './components/navigation/MainNavComponent';
+import MainNavComponent from './components/main-nav/MainNavComponent';
 import HomeComponent from './components/home/HomeComponent';
-import FavouriteRestaurantsComponent from './components/favourite/FavouriteRestaurantsComponent';
+import FavouriteRestaurantsComponent from './components/favourite-restaurant/FavouriteRestaurantsComponent';
 
 const App = () => (
   <Router>

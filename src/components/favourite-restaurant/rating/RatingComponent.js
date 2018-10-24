@@ -3,7 +3,7 @@ import Rating from 'react-rating';
 import {
   RatingComponentReadOnlyWrapper,
   RatingComponentWrapper,
-} from '../../styles/RatingComponentStyles';
+} from './RatingComponentStyles';
 
 class RatingComponent extends Component {
   constructor(props) {

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RestaurantsComponent from './RestaurantsComponent';
-import MapComponent from './MapComponent';
+import RestaurantsComponent from './restaurants/RestaurantsComponent';
+import MapComponent from './map/MapComponent';
 import * as actions from '../../redux/actions';
 import * as reducers from '../../redux/reducers';
 import {
   FavouriteRestaurantsWrapper,
   MapWrapper,
-} from '../../styles/FavouriteRestaurantsComponentStyles';
+} from './FavouriteRestaurantsComponentStyles';
 
 class FavouriteRestaurantsComponent extends Component {
   componentDidMount() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import RatingComponent from './RatingComponent';
-import { Button, Input } from '../../styles/SharedStyles';
+import RatingComponent from '../rating/RatingComponent';
+import { Button, Input } from '../../../styles/SharedStyles';
 import {
   TooltipComponentWrapper,
   Header,
   Label,
-} from '../../styles/TooltipComponentStyles';
+} from './TooltipComponentStyles';
 
 class TooltipComponent extends Component {
   constructor(props) {

@@ -1,10 +1,10 @@
 import React from 'react';
-import RatingComponent from './RatingComponent';
+import RatingComponent from '../rating/RatingComponent';
 import {
   RestaurantCardComponentWrapper,
   Name,
   FoodIcon,
-} from '../../styles/RestaurantCardComponentStyles';
+} from './RestaurantCardComponentStyles';
 
 const RestaurantCardComponent = (props) => (
   <RestaurantCardComponentWrapper>

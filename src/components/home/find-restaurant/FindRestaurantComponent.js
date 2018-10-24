@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/actions';
+import * as actions from '../../../redux/actions';
 import background from './background.jpg';
-import { Header, Input, Button } from '../../styles/SharedStyles';
+import { Header, Input, Button } from '../../../styles/SharedStyles';
 import {
   FindRestaurantComponentWrapper,
   BackgroundImage,
-} from '../../styles/FindRestaurantComponentStyles';
+} from './FindRestaurantComponentStyles';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {

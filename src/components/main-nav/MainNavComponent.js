@@ -4,7 +4,7 @@ import { Icon } from '../../styles/SharedStyles';
 import {
   MainNavComponentWrapper,
   AppName,
-} from '../../styles/MainNavComponentStyles';
+} from './MainNavComponentStyles';
 
 const MainNavComponent = () => (
   <MainNavComponentWrapper>
