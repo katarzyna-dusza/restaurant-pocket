@@ -45,6 +45,10 @@ class FindRestaurantComponent extends Component {
     );
   }
 
+  disableButton() {
+    return this.displayAlert() || !this.state.address;
+  }
+
   render() {
     return (
       <BackgroundImage imageSrc={background}>
@@ -57,7 +61,10 @@ class FindRestaurantComponent extends Component {
             value={this.state.address}
             onChange={this.handleAddressChange}
           />
-          <Button big onClick={this.findRestaurant}>
+          <Button
+            big
+            disabled={this.disableButton()}
+            onClick={this.findRestaurant}>
             Find
           </Button>
           {this.displayAlert()}

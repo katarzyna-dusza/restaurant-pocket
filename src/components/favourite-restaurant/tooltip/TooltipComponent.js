@@ -64,6 +64,10 @@ class TooltipComponent extends Component {
     );
   }
 
+  disableButton() {
+    return this.displayAlert() || !this.state.name;
+  }
+
   render() {
     return (
       <TooltipComponentWrapper>
@@ -79,7 +83,9 @@ class TooltipComponent extends Component {
           rating={this.state.rating}
           setRating={this.setRating}
         />
-        <Button onClick={this.addRestaurant}>Add</Button>
+        <Button disabled={this.disableButton()} onClick={this.addRestaurant}>
+          Add
+        </Button>
         {this.displayAlert()}
       </TooltipComponentWrapper>
     );
