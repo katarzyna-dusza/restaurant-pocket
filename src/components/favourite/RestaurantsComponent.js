@@ -61,11 +61,17 @@ class RestaurantsComponent extends Component {
 
   displaySorting() {
     return 'desc' === this.state.sort ? (
-      <i className="material-icons" data-type="asc" onClick={this.sortRestaurants}>
+      <i
+        className="material-icons"
+        data-type="asc"
+        onClick={this.sortRestaurants}>
         arrow_drop_up
       </i>
     ) : (
-      <i className="material-icons" data-type="desc" onClick={this.sortRestaurants}>
+      <i
+        className="material-icons"
+        data-type="desc"
+        onClick={this.sortRestaurants}>
         arrow_drop_down
       </i>
     );
