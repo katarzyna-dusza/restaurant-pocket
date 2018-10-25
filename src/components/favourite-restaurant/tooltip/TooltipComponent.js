@@ -8,10 +8,11 @@ import {
   Header,
   Label,
 } from './TooltipComponentStyles';
-import {Tooltip} from 'react-tippy';
+import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 
-const ALERT_CHAR = 'Please, use alphanumeric characters to write name. The first character must be a letter.'
+const ALERT_CHAR =
+  'Please, use alphanumeric characters to write name. The first character must be a letter.';
 const ALERT_EXISTS = 'This name already exists. Please, use another one.';
 
 class TooltipComponent extends Component {
@@ -54,7 +55,10 @@ class TooltipComponent extends Component {
   }
 
   isNameAllowed() {
-    return isNameValid(this.state.name) && !alreadyExists(this.state.name, this.props.restaurantNames);
+    return (
+      isNameValid(this.state.name) &&
+      !alreadyExists(this.state.name, this.props.restaurantNames)
+    );
   }
 
   disableButton() {
@@ -66,15 +70,28 @@ class TooltipComponent extends Component {
       <TooltipComponentWrapper>
         <Header>Do you like this place?</Header>
         <Label>Name it:</Label>
-        <InputComponent message={this.errorMessage()} position="bottom" open={!this.isNameAllowed() && this.state.name.length !== 0} placeholder="Type restaurant name" value={this.state.name} handleChange={this.handleNameChange} />
+        <InputComponent
+          message={this.errorMessage()}
+          position="bottom"
+          open={!this.isNameAllowed() && this.state.name.length !== 0}
+          placeholder="Type restaurant name"
+          value={this.state.name}
+          handleChange={this.handleNameChange}
+        />
         <Label>Rate it:</Label>
-        <RatingComponent rating={this.state.rating} setRating={this.setRating} left />
-        <ButtonComponent text={"Add"} disabled={this.disableButton()} onClick={this.addRestaurant} />
+        <RatingComponent
+          rating={this.state.rating}
+          setRating={this.setRating}
+          left
+        />
+        <ButtonComponent
+          text={'Add'}
+          disabled={this.disableButton()}
+          onClick={this.addRestaurant}
+        />
       </TooltipComponentWrapper>
     );
   }
 }
-
-
 
 export default TooltipComponent;

@@ -69,7 +69,9 @@ export const restaurantsByName = (state = {}, action) => {
 export const getRestaurants = (state) => {
   const names = state.restaurantNames;
 
-  return 'DESC' === state.sortType ? names.map((name) => state.restaurantsByName[name]).sort(sortDesc) : names.map((name) => state.restaurantsByName[name]).sort(sortAsc);
+  return 'DESC' === state.sortType
+    ? names.map((name) => state.restaurantsByName[name]).sort(sortDesc)
+    : names.map((name) => state.restaurantsByName[name]).sort(sortAsc);
 };
 
 export const getRestaurantNames = (state) => state.restaurantNames;
@@ -85,7 +87,7 @@ const reducers = combineReducers({
   geo,
   restaurantNames,
   restaurantsByName,
-  sortType
+  sortType,
 });
 
 export default reducers;

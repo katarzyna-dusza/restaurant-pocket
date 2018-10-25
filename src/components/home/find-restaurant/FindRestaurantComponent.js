@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import InputComponent from '../../shared/input/InputComponent'
+import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
 import { isAddressValid } from '../../../input-validation';
@@ -11,7 +11,8 @@ import {
   HomeHeader,
 } from './FindRestaurantComponentStyles';
 
-const ALERT_MSG = 'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address.';
+const ALERT_MSG =
+  'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address.';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {
@@ -46,8 +47,21 @@ class FindRestaurantComponent extends Component {
         <FindRestaurantComponentWrapper>
           <HomeHeader big>Find your favourite restaurant</HomeHeader>
           <HomeHeader>Taste your perfect meal</HomeHeader>
-          <InputComponent big message={ALERT_MSG} position="bottom" open={isAddressValid(this.state.address)} placeholder="Type your address" value={this.state.address} handleChange={this.handleAddressChange} />
-          <ButtonComponent big disabled={this.disableButton()} onClick={this.findRestaurant} text='Find' />
+          <InputComponent
+            big
+            message={ALERT_MSG}
+            position="bottom"
+            open={isAddressValid(this.state.address)}
+            placeholder="Type your address"
+            value={this.state.address}
+            handleChange={this.handleAddressChange}
+          />
+          <ButtonComponent
+            big
+            disabled={this.disableButton()}
+            onClick={this.findRestaurant}
+            text="Find"
+          />
         </FindRestaurantComponentWrapper>
       </BackgroundImage>
     );

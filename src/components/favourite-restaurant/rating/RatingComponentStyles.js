@@ -13,6 +13,6 @@ export const RatingComponentWrapper = styled.div`
 
   i {
     color: #f4e21a;
-    font-size: ${(props) => (props.readOnly ? '24px' : '30px')};;
+    font-size: ${(props) => (props.readOnly ? '24px' : '30px')};
   }
 `;

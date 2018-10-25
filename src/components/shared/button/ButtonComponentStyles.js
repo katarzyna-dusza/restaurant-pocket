@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const ButtonComponentWrapper = styled.button`
   height: ${(props) => (props.big ? '67px' : '40px')};
   width: ${(props) => (props.big ? '15%' : 'fit-content')};
-  background-color: ${(props) => (props.disabled ? 'rgba(124, 124, 124, .7)' : '#a51a1a')};
+  background-color: ${(props) =>
+    props.disabled ? 'rgba(124, 124, 124, .7)' : '#a51a1a'};
   color: white;
   outline: none;
   border: none;

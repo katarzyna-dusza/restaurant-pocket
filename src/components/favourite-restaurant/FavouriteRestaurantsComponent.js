@@ -19,12 +19,24 @@ class FavouriteRestaurantsComponent extends Component {
   }
 
   render() {
-    const {restaurants, restaurantNames, address, geo, addRestaurant, sortData, sortType} = this.props;
+    const {
+      restaurants,
+      restaurantNames,
+      address,
+      geo,
+      addRestaurant,
+      sortData,
+      sortType,
+    } = this.props;
 
     return (
       <MainComponentWrapper>
         <RestaurantsWrapper>
-          <RestaurantsComponent sortData={sortData} sortType={sortType} restaurants={restaurants} />
+          <RestaurantsComponent
+            sortData={sortData}
+            sortType={sortType}
+            restaurants={restaurants}
+          />
         </RestaurantsWrapper>
         <MapWrapper>
           <MapComponent
@@ -44,7 +56,7 @@ export const mapStateToProps = (state, { history }) => ({
   geo: reducers.fetchGeo(state),
   restaurants: reducers.getRestaurants(state),
   restaurantNames: reducers.getRestaurantNames(state),
-  sortType: reducers.getSortType(state)
+  sortType: reducers.getSortType(state),
 });
 
 FavouriteRestaurantsComponent = connect(

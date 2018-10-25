@@ -1,9 +1,14 @@
 import React from 'react';
 import Rating from 'react-rating';
-import {RatingComponentWrapper} from './RatingComponentStyles';
+import { RatingComponentWrapper } from './RatingComponentStyles';
 
 const RatingComponent = (props) => (
-  <RatingComponentWrapper readOnly={props.readonly} top={props.top} bottom={props.bottom} left={props.left} right={props.right}>
+  <RatingComponentWrapper
+    readOnly={props.readonly}
+    top={props.top}
+    bottom={props.bottom}
+    left={props.left}
+    right={props.right}>
     <Rating
       fractions={2}
       emptySymbol={<i className="material-icons">star_border</i>}

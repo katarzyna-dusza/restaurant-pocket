@@ -10,7 +10,7 @@ class PaginatedListComponent extends Component {
     super(props);
 
     this.state = {
-      activePage: 1
+      activePage: 1,
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -44,7 +44,7 @@ class PaginatedListComponent extends Component {
             nextPageText=">"
           />
         </PaginationWrapper>
-      )
+      );
     }
   }
 
