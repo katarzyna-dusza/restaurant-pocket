@@ -12,7 +12,7 @@ const RestaurantCardComponent = (props) => (
       <i className="material-icons">fastfood</i>
     </FoodIcon>
     <Name>{props.data.name}</Name>
-    <RatingComponent readonly rating={props.data.rating} />
+    <RatingComponent rating={props.data.rating} readonly bottom right />
   </RestaurantCardComponentWrapper>
 );
 

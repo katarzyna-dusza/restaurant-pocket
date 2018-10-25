@@ -5,32 +5,17 @@ import {
   RatingComponentWrapper,
 } from './RatingComponentStyles';
 
-const RatingComponent = (props) => {
-  if (props.readonly) {
-    return (
-      <RatingComponentReadOnlyWrapper>
-        <Rating
-          fractions={2}
-          emptySymbol={<i className="material-icons">star_border</i>}
-          fullSymbol={<i className="material-icons">star</i>}
-          initialRating={props.rating}
-          readonly
-        />
-      </RatingComponentReadOnlyWrapper>
-    );
-  }
-
-  return (
-    <RatingComponentWrapper>
-      <Rating
-        fractions={2}
-        emptySymbol={<i className="material-icons">star_border</i>}
-        fullSymbol={<i className="material-icons">star</i>}
-        onChange={props.setRating}
-        initialRating={props.rating}
-      />
-    </RatingComponentWrapper>
-  );
-};
+const RatingComponent = (props) => (
+  <RatingComponentWrapper readOnly={props.readonly} top={props.top} bottom={props.bottom} left={props.left} right={props.right}>
+    <Rating
+      fractions={2}
+      emptySymbol={<i className="material-icons">star_border</i>}
+      fullSymbol={<i className="material-icons">star</i>}
+      onChange={props.setRating}
+      initialRating={props.rating}
+      readonly={props.readonly}
+    />
+  </RatingComponentWrapper>
+);
 
 export default RatingComponent;

@@ -79,10 +79,7 @@ class TooltipComponent extends Component {
           onChange={this.handleNameChange}
         />
         <Label>Rate it:</Label>
-        <RatingComponent
-          rating={this.state.rating}
-          setRating={this.setRating}
-        />
+        <RatingComponent rating={this.state.rating} setRating={this.setRating} left />
         <Button disabled={this.disableButton()} onClick={this.addRestaurant}>
           Add
         </Button>
