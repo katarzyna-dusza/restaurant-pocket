@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import TooltipComponent from '../tooltip/TooltipComponent';
-import API_KEY from '../../../config';
+import API_KEY from '../../../api-key';
 import { MapComponentWrapper } from './MapComponentStyles';
 
 const DEFAULT_ZOOM = 15;
