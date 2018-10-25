@@ -51,7 +51,7 @@ class RestaurantsComponent extends Component {
     if (0 === this.props.restaurants.length) {
       return (
         <RestaurantsComponentWrapper>
-          <EmptyList>No favourite restaurants</EmptyList>
+          <EmptyListComponent text='No favourite restaurants'></EmptyListComponent>
         </RestaurantsComponentWrapper>
       );
     }
