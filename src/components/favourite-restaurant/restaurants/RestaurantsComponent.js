@@ -1,55 +1,21 @@
 import React, { Component } from 'react';
-import Pagination from 'react-js-pagination';
 import RestaurantCardComponent from '../restaurant-card/RestaurantCardComponent';
+import PaginationComponent from '../../shared/pagination/PaginationComponent';
 import {
   RestaurantsComponentWrapper,
-  PaginationWrapper,
   EmptyList,
   Header,
 } from './RestaurantsComponentStyles';
-
-const ITEMS_PER_PAGE = 5;
-const MAX_PAGINATION_RANGE = 3;
 
 class RestaurantsComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activePage: 1,
       sort: 'desc',
     };
 
-    this.handlePageChange = this.handlePageChange.bind(this);
     this.sortRestaurants = this.sortRestaurants.bind(this);
-  }
-
-  handlePageChange(pageNumber) {
-    this.setState({ activePage: pageNumber });
-  }
-
-  paginateData(restaurants) {
-    const pageIndex = this.state.activePage - 1;
-    const start = pageIndex * ITEMS_PER_PAGE;
-    const end = pageIndex * ITEMS_PER_PAGE + ITEMS_PER_PAGE;
-
-    return restaurants.slice(start, end);
-  }
-
-  displayPagination() {
-    return this.props.restaurants.length > ITEMS_PER_PAGE ? (
-      <Pagination
-        activePage={this.state.activePage}
-        totalItemsCount={this.props.restaurants.length}
-        itemsCountPerPage={ITEMS_PER_PAGE}
-        pageRangeDisplayed={MAX_PAGINATION_RANGE}
-        onChange={this.handlePageChange}
-        prevPageText="<"
-        nextPageText=">"
-      />
-    ) : (
-      ''
-    );
   }
 
   sortRestaurants(event) {
@@ -96,8 +62,7 @@ class RestaurantsComponent extends Component {
           Your restaurants
           {this.props.restaurants.length > 1 ? this.displaySorting() : ''}
         </Header>
-        {this.paginateData(restaurantList)}
-        <PaginationWrapper>{this.displayPagination()}</PaginationWrapper>
+        <PaginationComponent data={restaurantList} />
       </RestaurantsComponentWrapper>
     );
   }
