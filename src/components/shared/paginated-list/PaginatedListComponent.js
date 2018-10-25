@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Pagination from 'react-js-pagination';
-import { PaginationWrapper } from './PaginationComponentStyles';
+import { PaginationWrapper } from './PaginatedListComponentStyles';
 
 const ITEMS_PER_PAGE = 5;
 const MAX_PAGINATION_RANGE = 3;
 
-class PaginationComponent extends Component {
+class PaginatedListComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class PaginationComponent extends Component {
     this.setState({ activePage: pageNumber });
   }
 
-  paginateData() {
+  displayPaginatedData() {
     const pageIndex = this.state.activePage - 1;
     const start = pageIndex * ITEMS_PER_PAGE;
     const end = pageIndex * ITEMS_PER_PAGE + ITEMS_PER_PAGE;
@@ -51,11 +51,11 @@ class PaginationComponent extends Component {
   render() {
     return (
       <div>
-        {this.paginateData()}
+        {this.displayPaginatedData()}
         {this.displayPagination()}
       </div>
     );
   }
 }
 
-export default PaginationComponent;
+export default PaginatedListComponent;

@@ -1,5 +1,3 @@
-export const checkAddress = (a) => new RegExp(/[@#$%^&*+=(){}\[\]:;"'<>?!_]/).test(a);
-
-export const checkName = (n) => new RegExp(/[@#$%^&*+=(){}\[\]:;"'<>?!_,.\/]/).test(n);
-
+export const isAddressValid = (a) => new RegExp(/[@#$%^&*+=(){}\[\]:;"'<>?!_]/).test(a);
+export const isNameValid = (n) => new RegExp(/^[a-zA-Z][a-zA-Z0-9-_ ]*$/).test(n);
 export const alreadyExists = (n, array) => array.includes(n);

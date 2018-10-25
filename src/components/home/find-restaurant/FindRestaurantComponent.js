@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import InputComponent from '../../shared/input/InputComponent'
+import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
-import { checkAddress } from '../../../input-validation';
+import { isAddressValid } from '../../../input-validation';
 import background from './background.jpg';
-import { Input, Button, Alert } from '../../../styles/SharedStyles';
 import {
   FindRestaurantComponentWrapper,
   BackgroundImage,
   HomeHeader,
 } from './FindRestaurantComponentStyles';
+
+const ALERT_MSG = 'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address.';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {
@@ -33,20 +36,8 @@ class FindRestaurantComponent extends Component {
     history.push('/favourite');
   }
 
-  displayAlert() {
-    const ALERT = `Please, use alphanumeric characters and optionally '.', ',', '/' to write correct address.`;
-
-    return (
-      checkAddress(this.state.address) && (
-        <Alert home>
-          <p>{ALERT}</p>
-        </Alert>
-      )
-    );
-  }
-
   disableButton() {
-    return this.displayAlert() || !this.state.address;
+    return isAddressValid(this.state.address) || !this.state.address;
   }
 
   render() {
@@ -55,19 +46,8 @@ class FindRestaurantComponent extends Component {
         <FindRestaurantComponentWrapper>
           <HomeHeader big>Find your favourite restaurant</HomeHeader>
           <HomeHeader>Taste your perfect meal</HomeHeader>
-          <Input
-            big
-            placeholder="Type your address"
-            value={this.state.address}
-            onChange={this.handleAddressChange}
-          />
-          <Button
-            big
-            disabled={this.disableButton()}
-            onClick={this.findRestaurant}>
-            Find
-          </Button>
-          {this.displayAlert()}
+          <InputComponent big message={ALERT_MSG} position="bottom" open={isAddressValid(this.state.address)} placeholder="Type your address" value={this.state.address} handleChange={this.handleAddressChange} />
+          <ButtonComponent big disabled={this.disableButton()} onClick={this.findRestaurant} text='Find' />
         </FindRestaurantComponentWrapper>
       </BackgroundImage>
     );

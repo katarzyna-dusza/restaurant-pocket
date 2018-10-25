@@ -1,9 +1,11 @@
 import React  from 'react';
 import RestaurantCardComponent from '../restaurant-card/RestaurantCardComponent';
-import PaginationComponent from '../../shared/pagination/PaginationComponent';
+import PaginatedListComponent from '../../shared/paginated-list/PaginatedListComponent';
 import SortingComponent from '../../shared/sorting/SortingComponent';
 import EmptyListComponent from '../../shared/empty-list/EmptyListComponent';
 import { RestaurantsComponentWrapper, Header } from './RestaurantsComponentStyles';
+
+const EMPTY_RESTAURANTS_LIST = 'No favourite restaurants';
 
 const RestaurantsComponent = (props) =>  {
   const sortRestaurants = (event) => {
@@ -18,7 +20,7 @@ const RestaurantsComponent = (props) =>  {
   if (0 === props.restaurants.length) {
     return (
       <RestaurantsComponentWrapper>
-        <EmptyListComponent text='No favourite restaurants'></EmptyListComponent>
+        <EmptyListComponent text={EMPTY_RESTAURANTS_LIST}></EmptyListComponent>
       </RestaurantsComponentWrapper>
     );
   }
@@ -29,7 +31,7 @@ const RestaurantsComponent = (props) =>  {
         Your restaurants
         <SortingComponent sortType={props.sortType} onClick={sortRestaurants} sortingAvailable={props.restaurants.length > 1} />
       </Header>
-      <PaginationComponent data={restaurantList} />
+      <PaginatedListComponent data={restaurantList} />
     </RestaurantsComponentWrapper>
   );
 }

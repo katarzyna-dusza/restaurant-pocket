@@ -1,9 +1,6 @@
 import React from 'react';
 import Rating from 'react-rating';
-import {
-  RatingComponentReadOnlyWrapper,
-  RatingComponentWrapper,
-} from './RatingComponentStyles';
+import {RatingComponentWrapper} from './RatingComponentStyles';
 
 const RatingComponent = (props) => (
   <RatingComponentWrapper readOnly={props.readonly} top={props.top} bottom={props.bottom} left={props.left} right={props.right}>

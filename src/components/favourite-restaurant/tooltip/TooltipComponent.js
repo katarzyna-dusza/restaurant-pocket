@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import RatingComponent from '../rating/RatingComponent';
-import { checkName, alreadyExists } from '../../../input-validation';
-import { Button, Input, Alert } from '../../../styles/SharedStyles';
+import InputComponent from '../../shared/input/InputComponent';
+import ButtonComponent from '../../shared/button/ButtonComponent';
+import { isNameValid, alreadyExists } from '../../../input-validation';
 import {
   TooltipComponentWrapper,
   Header,
   Label,
 } from './TooltipComponentStyles';
+import {Tooltip} from 'react-tippy';
+import 'react-tippy/dist/tippy.css';
+
+const ALERT_CHAR = 'Please, use alphanumeric characters to write name. The first character must be a letter.'
+const ALERT_EXISTS = 'This name already exists. Please, use another one.';
 
 class TooltipComponent extends Component {
   constructor(props) {
@@ -43,29 +49,16 @@ class TooltipComponent extends Component {
     this.setRating(0);
   }
 
-  displayAlert() {
-    const ALERT_CHAR = `Please, use alphanumeric characters to write name.`;
-    const ALERT_EXISTS = `This name already exists. Please, use another one.`;
+  errorMessage() {
+    return !isNameValid(this.state.name) ? ALERT_CHAR : ALERT_EXISTS;
+  }
 
-    if (checkName(this.state.name)) {
-      return (
-        <Alert>
-          <p>{ALERT_CHAR}</p>
-        </Alert>
-      );
-    }
-
-    return (
-      alreadyExists(this.state.name, this.props.restaurantNames) && (
-        <Alert>
-          <p>{ALERT_EXISTS}</p>
-        </Alert>
-      )
-    );
+  isNameAllowed() {
+    return isNameValid(this.state.name) && !alreadyExists(this.state.name, this.props.restaurantNames);
   }
 
   disableButton() {
-    return this.displayAlert() || !this.state.name;
+    return !this.isNameAllowed() || !this.state.name;
   }
 
   render() {
@@ -73,20 +66,15 @@ class TooltipComponent extends Component {
       <TooltipComponentWrapper>
         <Header>Do you like this place?</Header>
         <Label>Name it:</Label>
-        <Input
-          placeholder="Type restaurant name"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-        />
+        <InputComponent message={this.errorMessage()} position="bottom" open={!this.isNameAllowed() && this.state.name.length !== 0} placeholder="Type restaurant name" value={this.state.name} handleChange={this.handleNameChange} />
         <Label>Rate it:</Label>
         <RatingComponent rating={this.state.rating} setRating={this.setRating} left />
-        <Button disabled={this.disableButton()} onClick={this.addRestaurant}>
-          Add
-        </Button>
-        {this.displayAlert()}
+        <ButtonComponent text={"Add"} disabled={this.disableButton()} onClick={this.addRestaurant} />
       </TooltipComponentWrapper>
     );
   }
 }
+
+
 
 export default TooltipComponent;
