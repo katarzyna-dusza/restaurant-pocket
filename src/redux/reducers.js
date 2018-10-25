@@ -1,6 +1,16 @@
 import { combineReducers } from 'redux';
 
+const sortAsc = (firstObj, secondObj) => firstObj.rating - secondObj.rating;
 const sortDesc = (firstObj, secondObj) => secondObj.rating - firstObj.rating;
+
+export const sortType = (state = 'DESC', action) => {
+  switch (action.type) {
+    case 'SORT':
+      return action.sortType;
+    default:
+      return state;
+  }
+};
 
 export const address = (state = '', action) => {
   switch (action.type) {
@@ -59,7 +69,7 @@ export const restaurantsByName = (state = {}, action) => {
 export const getRestaurants = (state) => {
   const names = state.restaurantNames;
 
-  return names.map((name) => state.restaurantsByName[name]).sort(sortDesc);
+  return 'DESC' === state.sortType ? names.map((name) => state.restaurantsByName[name]).sort(sortDesc) : names.map((name) => state.restaurantsByName[name]).sort(sortAsc);
 };
 
 export const getRestaurantNames = (state) => state.restaurantNames;
@@ -68,11 +78,14 @@ export const fetchAddress = (state) => state.address;
 
 export const fetchGeo = (state) => state.geo;
 
+export const getSortType = (state) => state.sortType;
+
 const reducers = combineReducers({
   address,
   geo,
   restaurantNames,
   restaurantsByName,
+  sortType
 });
 
 export default reducers;

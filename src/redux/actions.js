@@ -3,6 +3,11 @@ import API_KEY from '../api-key';
 
 Geocode.setApiKey(API_KEY);
 
+const sort = (sortType) => ({
+  type: 'SORT',
+  sortType,
+});
+
 const address_set = (address) => ({
   type: 'ADDRESS_SET',
   address,
@@ -17,6 +22,8 @@ const geo_fetched = (geoData) => ({
   type: 'GEO_FETCHED',
   geoData,
 });
+
+export const sortData = (sortType) => sort(sortType);
 
 export const setAddress = (address) => address_set(address);
 
