@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const RestaurantsWrapper = styled.div`
-  height: 100%;
+  height: calc(100% - 85px);
   width: 20%;
   margin-left: 1%;
+  overflow: scroll;
   font-size: 40px;
   text-align: center;
   float: left;

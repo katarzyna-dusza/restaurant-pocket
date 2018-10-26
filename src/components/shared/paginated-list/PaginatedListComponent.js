@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Pagination from 'react-js-pagination';
 import { PaginationWrapper } from './PaginatedListComponentStyles';
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 4;
 const MAX_PAGINATION_RANGE = 3;
 const PREV = '<';
 const NEXT = '>';
