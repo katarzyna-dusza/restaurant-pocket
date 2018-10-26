@@ -57,6 +57,10 @@ class MarkerComponent extends Component {
     this.setRating(0);
   }
 
+  toggleMarker() {
+    this.clearData();
+  }
+
   errorMessage() {
     return !isNameValid(this.state.name) || isNameReachedLimit(this.state.name)
       ? ALERT_CHAR
@@ -73,10 +77,6 @@ class MarkerComponent extends Component {
 
   disableButton() {
     return !this.isNameAllowed() || !this.state.name;
-  }
-
-  toggleMarker() {
-    this.clearData();
   }
 
   render() {
