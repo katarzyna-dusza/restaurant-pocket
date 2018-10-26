@@ -3,12 +3,14 @@ import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import { InputComponentWrapper } from './InputComponentStyles';
 
+const THEME = 'dark';
+
 const InputComponent = (props) => (
   <Tooltip
     title={props.message}
     position={props.position}
     arrow={true}
-    theme="dark"
+    theme={THEME}
     open={props.open}>
     <InputComponentWrapper
       big={props.big}

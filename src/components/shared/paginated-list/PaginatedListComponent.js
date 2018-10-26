@@ -4,6 +4,8 @@ import { PaginationWrapper } from './PaginatedListComponentStyles';
 
 const ITEMS_PER_PAGE = 5;
 const MAX_PAGINATION_RANGE = 3;
+const PREV = '<';
+const NEXT = '>';
 
 class PaginatedListComponent extends Component {
   constructor(props) {
@@ -40,8 +42,8 @@ class PaginatedListComponent extends Component {
             itemsCountPerPage={ITEMS_PER_PAGE}
             pageRangeDisplayed={MAX_PAGINATION_RANGE}
             onChange={this.handlePageChange}
-            prevPageText="<"
-            nextPageText=">"
+            prevPageText={PREV}
+            nextPageText={NEXT}
           />
         </PaginationWrapper>
       );

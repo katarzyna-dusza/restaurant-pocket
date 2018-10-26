@@ -9,7 +9,7 @@ import {
 const RestaurantCardComponent = (props) => (
   <RestaurantCardComponentWrapper>
     <FoodIcon>
-      <i className="material-icons">fastfood</i>
+      <i className='material-icons'>fastfood</i>
     </FoodIcon>
     <Name>{props.data.name}</Name>
     <RatingComponent rating={props.data.rating} readonly bottom right />

@@ -11,6 +11,8 @@ import {
   HomeHeader,
 } from './FindRestaurantComponentStyles';
 
+const APP_NAME = 'Find your favourite restaurant';
+const APP_NAME_SMALL = 'Taste your perfect meal';
 const ALERT_MSG =
   'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address.';
 
@@ -42,17 +44,21 @@ class FindRestaurantComponent extends Component {
   }
 
   render() {
+    const BUTTON_TEXT = 'Find';
+    const POSITION = 'bottom';
+    const PLACEHOLDER = 'Type your address';
+
     return (
       <BackgroundImage imageSrc={background}>
         <FindRestaurantComponentWrapper>
-          <HomeHeader big>Find your favourite restaurant</HomeHeader>
-          <HomeHeader>Taste your perfect meal</HomeHeader>
+          <HomeHeader big>{APP_NAME}</HomeHeader>
+          <HomeHeader>{APP_NAME_SMALL}</HomeHeader>
           <InputComponent
             big
             message={ALERT_MSG}
-            position="bottom"
+            position={POSITION}
             open={isAddressValid(this.state.address)}
-            placeholder="Type your address"
+            placeholder={PLACEHOLDER}
             value={this.state.address}
             handleChange={this.handleAddressChange}
           />
@@ -60,7 +66,7 @@ class FindRestaurantComponent extends Component {
             big
             disabled={this.disableButton()}
             onClick={this.findRestaurant}
-            text="Find"
+            text={BUTTON_TEXT}
           />
         </FindRestaurantComponentWrapper>
       </BackgroundImage>

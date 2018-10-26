@@ -10,10 +10,12 @@ import {
   RestaurantsWrapper,
 } from './FavouriteRestaurantsComponentStyles';
 
+const DEFAULT_ADDRESS = 'Berlin';
+
 class FavouriteRestaurantsComponent extends Component {
   componentDidMount() {
     const { address, fetchGeo } = this.props;
-    const addressGeo = address ? address : 'Berlin';
+    const addressGeo = address ? address : DEFAULT_ADDRESS;
 
     fetchGeo(addressGeo);
   }
