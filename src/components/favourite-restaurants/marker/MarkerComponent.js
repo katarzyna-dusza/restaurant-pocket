@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RatingComponent from '../rating/RatingComponent';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
+import LabelComponent from '../../shared/label/LabelComponent';
 import {
   isNameValid,
   alreadyExists,
@@ -9,9 +10,8 @@ import {
 } from '../../../input-validation';
 import {
   MarkerComponentWrapper,
-  MarkerComponentWrapperA,
+  MarkerIcon,
   Header,
-  Label,
 } from './MarkerComponentStyles';
 
 const ALERT_CHAR =
@@ -89,16 +89,16 @@ class MarkerComponent extends Component {
               close
             </i>
           </Header>
-          <Label>Name it:</Label>
+          <LabelComponent text={'Name it'} />
           <InputComponent
             message={this.errorMessage()}
-            position="bottom"
+            position={'bottom'}
             open={!this.isNameAllowed() && this.state.name.length !== 0}
-            placeholder="Type restaurant name"
+            placeholder={'Type restaurant name'}
             value={this.state.name}
             handleChange={this.handleNameChange}
           />
-          <Label>Rate it:</Label>
+          <LabelComponent text={'Rate it'} />
           <RatingComponent
             rating={this.state.rating}
             setRating={this.setRating}
@@ -114,11 +114,12 @@ class MarkerComponent extends Component {
     }
 
     return (
-      <MarkerComponentWrapperA>
-        <div onClick={this.toggleMarker}>Add</div>
-      </MarkerComponentWrapperA>
+      <MarkerIcon>
+        <i class="material-icons" onClick={this.toggleMarker}>
+          room
+        </i>
+      </MarkerIcon>
     );
   }
 }
-
 export default MarkerComponent;

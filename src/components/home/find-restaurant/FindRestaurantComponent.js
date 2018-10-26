@@ -51,10 +51,6 @@ class FindRestaurantComponent extends Component {
   }
 
   render() {
-    const BUTTON_TEXT = 'Find';
-    const POSITION = 'bottom';
-    const PLACEHOLDER = 'Type your address';
-
     return (
       <BackgroundImage imageSrc={background}>
         <FindRestaurantComponentWrapper>
@@ -63,12 +59,12 @@ class FindRestaurantComponent extends Component {
           <InputComponent
             big
             message={ALERT_MSG}
-            position={POSITION}
+            position={'bottom'}
             open={
               isAddressInvalid(this.state.address) ||
               isAddressReachedLimit(this.state.address)
             }
-            placeholder={PLACEHOLDER}
+            placeholder={'Type your address'}
             value={this.state.address}
             handleChange={this.handleAddressChange}
           />
@@ -76,7 +72,7 @@ class FindRestaurantComponent extends Component {
             big
             disabled={this.disableButton()}
             onClick={this.findRestaurant}
-            text={BUTTON_TEXT}
+            text={'Find'}
           />
         </FindRestaurantComponentWrapper>
       </BackgroundImage>
