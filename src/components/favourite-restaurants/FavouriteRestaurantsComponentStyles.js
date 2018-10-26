@@ -5,6 +5,7 @@ export const RestaurantsWrapper = styled.div`
   width: 20%;
   margin-left: 1%;
   overflow: scroll;
+  overflow-x: hidden;
   font-size: 40px;
   text-align: center;
   float: left;
