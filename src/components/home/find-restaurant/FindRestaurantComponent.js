@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
-import { isAddressInvalid, isAddressReachedLimit } from '../../../input-validation';
+import {
+  isAddressInvalid,
+  isAddressReachedLimit,
+} from '../../../input-validation';
 import background from './background.jpg';
 import {
   FindRestaurantComponentWrapper,
@@ -40,7 +43,11 @@ class FindRestaurantComponent extends Component {
   }
 
   disableButton() {
-    return isAddressInvalid(this.state.address) || !this.state.address || isAddressReachedLimit(this.state.address);
+    return (
+      isAddressInvalid(this.state.address) ||
+      !this.state.address ||
+      isAddressReachedLimit(this.state.address)
+    );
   }
 
   render() {
@@ -57,7 +64,10 @@ class FindRestaurantComponent extends Component {
             big
             message={ALERT_MSG}
             position={POSITION}
-            open={isAddressInvalid(this.state.address) || isAddressReachedLimit(this.state.address)}
+            open={
+              isAddressInvalid(this.state.address) ||
+              isAddressReachedLimit(this.state.address)
+            }
             placeholder={PLACEHOLDER}
             value={this.state.address}
             handleChange={this.handleAddressChange}

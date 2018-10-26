@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import RatingComponent from '../rating/RatingComponent';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
-import { isNameValid, alreadyExists, isNameReachedLimit } from '../../../input-validation';
+import {
+  isNameValid,
+  alreadyExists,
+  isNameReachedLimit,
+} from '../../../input-validation';
 import {
   MarkerComponentWrapper,
   MarkerComponentWrapperA,
@@ -48,19 +52,22 @@ class MarkerComponent extends Component {
   }
 
   clearData() {
-    this.setState({showMarker: !this.state.showMarker});
+    this.setState({ showMarker: !this.state.showMarker });
     this.setState({ name: '' });
     this.setRating(0);
   }
 
   errorMessage() {
-    return !isNameValid(this.state.name) || isNameReachedLimit(this.state.name) ? ALERT_CHAR : ALERT_EXISTS;
+    return !isNameValid(this.state.name) || isNameReachedLimit(this.state.name)
+      ? ALERT_CHAR
+      : ALERT_EXISTS;
   }
 
   isNameAllowed() {
     return (
       isNameValid(this.state.name) &&
-      !alreadyExists(this.state.name, this.props.restaurantNames) && !isNameReachedLimit(this.state.name)
+      !alreadyExists(this.state.name, this.props.restaurantNames) &&
+      !isNameReachedLimit(this.state.name)
     );
   }
 

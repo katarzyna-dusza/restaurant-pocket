@@ -9,13 +9,13 @@ import {
 const MainNavComponent = () => (
   <MainNavComponentWrapper>
     <Icon left link>
-      <Link to='/'>
-        <i className='material-icons'>restaurant</i>
+      <Link to="/">
+        <i className="material-icons">restaurant</i>
       </Link>
     </Icon>
     <AppName>Favourite Restaurant</AppName>
     <Icon right>
-      <i className='material-icons'>person_outline</i>
+      <i className="material-icons">person_outline</i>
     </Icon>
   </MainNavComponentWrapper>
 );

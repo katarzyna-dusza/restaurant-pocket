@@ -11,8 +11,8 @@ const RatingComponent = (props) => (
     right={props.right}>
     <Rating
       fractions={2}
-      emptySymbol={<i className='material-icons'>star_border</i>}
-      fullSymbol={<i className='material-icons'>star</i>}
+      emptySymbol={<i className="material-icons">star_border</i>}
+      fullSymbol={<i className="material-icons">star</i>}
       onChange={props.setRating}
       initialRating={props.rating}
       readonly={props.readonly}
