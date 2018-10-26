@@ -44,6 +44,7 @@ class FavouriteRestaurantsComponent extends Component {
             geo={geo}
             addRestaurant={addRestaurant}
             restaurantNames={restaurantNames}
+            restaurants={restaurants}
           />
         </MapWrapper>
       </MainComponentWrapper>
