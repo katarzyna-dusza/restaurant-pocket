@@ -25,7 +25,7 @@ class MarkerComponent extends Component {
     this.state = {
       name: '',
       rating: 0,
-      showMarker: false,
+      showMarker: true,
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);

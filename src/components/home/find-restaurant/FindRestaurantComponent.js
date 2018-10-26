@@ -4,7 +4,7 @@ import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
 import {
-  isAddressInvalid,
+  isAddressValid,
   isAddressReachedLimit,
 } from '../../../input-validation';
 import background from './background.jpg';
@@ -44,7 +44,7 @@ class FindRestaurantComponent extends Component {
 
   disableButton() {
     return (
-      isAddressInvalid(this.state.address) ||
+      !isAddressValid(this.state.address) ||
       !this.state.address ||
       isAddressReachedLimit(this.state.address)
     );
@@ -61,7 +61,7 @@ class FindRestaurantComponent extends Component {
             message={ALERT_MSG}
             position={'bottom'}
             open={
-              isAddressInvalid(this.state.address) ||
+              !isAddressValid(this.state.address) ||
               isAddressReachedLimit(this.state.address)
             }
             placeholder={'Type your address'}
