@@ -85,7 +85,7 @@ class MarkerComponent extends Component {
         <MarkerComponentWrapper>
           <Header>
             Do you like this place?
-            <i class="material-icons" onClick={this.toggleMarker}>
+            <i className="material-icons" onClick={this.toggleMarker}>
               close
             </i>
           </Header>
@@ -115,7 +115,7 @@ class MarkerComponent extends Component {
 
     return (
       <MarkerIcon>
-        <i class="material-icons" onClick={this.toggleMarker}>
+        <i className="material-icons" onClick={this.toggleMarker}>
           room
         </i>
       </MarkerIcon>

@@ -34,17 +34,6 @@ export const geo = (state = {}, action) => {
   }
 };
 
-export const restaurant = (state = [], action) => {
-  switch (action.type) {
-    case 'RESTAURANT_ADDED':
-      return {
-        ...state,
-      };
-    default:
-      return state;
-  }
-};
-
 export const restaurantNames = (state = [], action) => {
   switch (action.type) {
     case 'RESTAURANT_ADDED':
@@ -76,9 +65,9 @@ export const getRestaurants = (state) => {
 
 export const getRestaurantNames = (state) => state.restaurantNames;
 
-export const fetchAddress = (state) => state.address;
+export const getAddress = (state) => state.address;
 
-export const fetchGeo = (state) => state.geo;
+export const getGeo = (state) => state.geo;
 
 export const getSortType = (state) => state.sortType;
 

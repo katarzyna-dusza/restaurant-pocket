@@ -17,7 +17,7 @@ import {
 const APP_NAME = 'Find your favourite restaurant';
 const APP_NAME_SMALL = 'Taste your perfect meal';
 const ALERT_MSG =
-  'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address. The address should have max 30 characters.';
+  'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address. The address should have max 40 characters.';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {

@@ -55,8 +55,8 @@ class FavouriteRestaurantsComponent extends Component {
 }
 
 export const mapStateToProps = (state, { history }) => ({
-  address: reducers.fetchAddress(state),
-  geo: reducers.fetchGeo(state),
+  address: reducers.getAddress(state),
+  geo: reducers.getGeo(state),
   restaurants: reducers.getRestaurants(state),
   restaurantNames: reducers.getRestaurantNames(state),
   sortType: reducers.getSortType(state),
