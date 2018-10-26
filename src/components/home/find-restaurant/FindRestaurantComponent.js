@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
-import { isAddressValid } from '../../../input-validation';
+import { isAddressInvalid, isAddressReachedLimit } from '../../../input-validation';
 import background from './background.jpg';
 import {
   FindRestaurantComponentWrapper,
@@ -14,7 +14,7 @@ import {
 const APP_NAME = 'Find your favourite restaurant';
 const APP_NAME_SMALL = 'Taste your perfect meal';
 const ALERT_MSG =
-  'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address.';
+  'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address. The address should have max 30 characters.';
 
 class FindRestaurantComponent extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class FindRestaurantComponent extends Component {
   }
 
   disableButton() {
-    return isAddressValid(this.state.address) || !this.state.address;
+    return isAddressInvalid(this.state.address) || !this.state.address || isAddressReachedLimit(this.state.address);
   }
 
   render() {
@@ -57,7 +57,7 @@ class FindRestaurantComponent extends Component {
             big
             message={ALERT_MSG}
             position={POSITION}
-            open={isAddressValid(this.state.address)}
+            open={isAddressInvalid(this.state.address) || isAddressReachedLimit(this.state.address)}
             placeholder={PLACEHOLDER}
             value={this.state.address}
             handleChange={this.handleAddressChange}

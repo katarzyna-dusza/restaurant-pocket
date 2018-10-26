@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RatingComponent from '../rating/RatingComponent';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
-import { isNameValid, alreadyExists } from '../../../input-validation';
+import { isNameValid, alreadyExists, isNameReachedLimit } from '../../../input-validation';
 import {
   MarkerComponentWrapper,
   MarkerComponentWrapperA,
@@ -11,7 +11,7 @@ import {
 } from './MarkerComponentStyles';
 
 const ALERT_CHAR =
-  'Please, use alphanumeric characters to write name. The first character must be a letter.';
+  'Please, use alphanumeric characters to write name. The first character must be a letter. The name should have max 20 characters.';
 const ALERT_EXISTS = 'This name already exists. Please, use another one.';
 
 class MarkerComponent extends Component {
@@ -54,13 +54,13 @@ class MarkerComponent extends Component {
   }
 
   errorMessage() {
-    return !isNameValid(this.state.name) ? ALERT_CHAR : ALERT_EXISTS;
+    return !isNameValid(this.state.name) || isNameReachedLimit(this.state.name) ? ALERT_CHAR : ALERT_EXISTS;
   }
 
   isNameAllowed() {
     return (
       isNameValid(this.state.name) &&
-      !alreadyExists(this.state.name, this.props.restaurantNames)
+      !alreadyExists(this.state.name, this.props.restaurantNames) && !isNameReachedLimit(this.state.name)
     );
   }
 
