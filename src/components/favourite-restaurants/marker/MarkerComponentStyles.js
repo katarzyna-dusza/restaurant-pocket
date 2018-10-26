@@ -11,6 +11,7 @@ export const MarkerComponentWrapperA = styled.div`
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
+  z-index: 0;
 
   &:after {
     height: 0;
@@ -37,6 +38,7 @@ export const MarkerComponentWrapper = styled.div`
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer
+  z-index: 1;
 
   &:after {
     height: 0;
