@@ -60,6 +60,10 @@ export const Header = styled.div`
   text-align: left;
   background-color: #a52420;
   color: white;
+
+  i {
+    float: right;
+  }
 `;
 
 export const Label = styled.div`

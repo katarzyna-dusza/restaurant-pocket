@@ -31,7 +31,7 @@ class MarkerComponent extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.setRating = this.setRating.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
-    this.t = this.t.bind(this);
+    this.toggleMarker = this.toggleMarker.bind(this);
   }
 
   handleNameChange(event) {
@@ -75,8 +75,8 @@ class MarkerComponent extends Component {
     return !this.isNameAllowed() || !this.state.name;
   }
 
-  t() { debugger;
-    this.setState({showMarker: !this.state.showMarker});
+  toggleMarker() {
+    this.clearData();
   }
 
   render() {
@@ -85,7 +85,9 @@ class MarkerComponent extends Component {
         <MarkerComponentWrapper>
           <Header>
             Do you like this place?
-            <div onClick={this.t}>X</div>
+            <i class="material-icons" onClick={this.toggleMarker}>
+              close
+            </i>
           </Header>
           <Label>Name it:</Label>
           <InputComponent
@@ -113,7 +115,7 @@ class MarkerComponent extends Component {
 
     return (
       <MarkerComponentWrapperA>
-      <div onClick={this.t}>Add</div>
+        <div onClick={this.toggleMarker}>Add</div>
       </MarkerComponentWrapperA>
     );
   }
