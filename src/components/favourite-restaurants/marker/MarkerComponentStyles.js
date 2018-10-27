@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const MarkerComponentWrapper = styled.div`
   height: 200px;
   width: 300px;
-  padding: 4px;
   position: relative;
   left: -120px;
   top: -200px;
@@ -18,7 +17,7 @@ export const MarkerComponentWrapper = styled.div`
     height: 0;
     width: 0;
     position: absolute;
-    top: 208px;
+    top: 200px;
     left: 120px;
     content: "";
     border-width: 10px;

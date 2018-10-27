@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import InputComponent from '../../shared/input/InputComponent';
 import ButtonComponent from '../../shared/button/ButtonComponent';
 import * as actions from '../../../redux/actions';
+import * as reducers from '../../../redux/reducers';
 import {
   isAddressValid,
   isAddressReachedLimit,
@@ -19,7 +20,7 @@ const APP_NAME_SMALL = 'Taste your perfect meal';
 const ALERT_MSG =
   'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address. The address should have max 40 characters.';
 
-class FindRestaurantComponent extends Component {
+export class FindRestaurantComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -80,11 +81,13 @@ class FindRestaurantComponent extends Component {
   }
 }
 
-export const mapStateToProps = (state, { history }) => ({});
+export const mapStateToProps = (state, { history }) => ({
+  address: reducers.getAddress(state),
+});
 
-FindRestaurantComponent = connect(
+const FindRestaurantComponentContainer = connect(
   mapStateToProps,
   actions,
 )(FindRestaurantComponent);
 
-export default FindRestaurantComponent;
+export default FindRestaurantComponentContainer;

@@ -1,10 +1,10 @@
 import React from 'react';
-import FindRestaurantComponent from './find-restaurant/FindRestaurantComponent';
+import FindRestaurantComponentContainer from './find-restaurant/FindRestaurantComponentContainer';
 import { MainComponentWrapper } from '../../styles/SharedStyles';
 
 const HomeComponent = (props) => (
   <MainComponentWrapper home>
-    <FindRestaurantComponent history={props.history} />
+    <FindRestaurantComponentContainer history={props.history} />
   </MainComponentWrapper>
 );
 

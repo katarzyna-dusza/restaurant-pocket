@@ -25,7 +25,7 @@ class MarkerComponent extends Component {
     this.state = {
       name: '',
       rating: 0,
-      showMarker: true,
+      showMarker: false,
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -89,7 +89,7 @@ class MarkerComponent extends Component {
               close
             </i>
           </Header>
-          <LabelComponent text={'Name it'} />
+          <LabelComponent text={'Name'} />
           <InputComponent
             message={this.errorMessage()}
             position={'bottom'}
@@ -98,7 +98,7 @@ class MarkerComponent extends Component {
             value={this.state.name}
             handleChange={this.handleNameChange}
           />
-          <LabelComponent text={'Rate it'} />
+          <LabelComponent text={'Rate'} />
           <RatingComponent
             rating={this.state.rating}
             setRating={this.setRating}

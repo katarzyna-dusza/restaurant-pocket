@@ -12,7 +12,7 @@ import {
 
 const DEFAULT_ADDRESS = 'Berlin';
 
-class FavouriteRestaurantsComponent extends Component {
+export class FavouriteRestaurantsComponent extends Component {
   componentDidMount() {
     const { address, fetchGeo } = this.props;
     const addressGeo = address ? address : DEFAULT_ADDRESS;
@@ -54,7 +54,7 @@ class FavouriteRestaurantsComponent extends Component {
   }
 }
 
-export const mapStateToProps = (state, { history }) => ({
+export const mapStateToProps = (state, {}) => ({
   address: reducers.getAddress(state),
   geo: reducers.getGeo(state),
   restaurants: reducers.getRestaurants(state),
@@ -62,9 +62,9 @@ export const mapStateToProps = (state, { history }) => ({
   sortType: reducers.getSortType(state),
 });
 
-FavouriteRestaurantsComponent = connect(
+const FavouriteRestaurantsComponentContainer = connect(
   mapStateToProps,
   actions,
 )(FavouriteRestaurantsComponent);
 
-export default FavouriteRestaurantsComponent;
+export default FavouriteRestaurantsComponentContainer;

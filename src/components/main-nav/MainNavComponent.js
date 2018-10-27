@@ -13,7 +13,7 @@ const MainNavComponent = () => (
         <i className="material-icons">restaurant</i>
       </Link>
     </Icon>
-    <AppName>Favourite Restaurant</AppName>
+    <AppName>Restaurant Pocket</AppName>
     <Icon right>
       <i className="material-icons">person_outline</i>
     </Icon>

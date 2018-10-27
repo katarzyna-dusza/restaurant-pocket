@@ -31,7 +31,7 @@ const RestaurantsComponent = (props) => {
   return (
     <RestaurantsComponentWrapper>
       <Header>
-        Your restaurants
+        Favourite restaurants
         <SortingComponent
           sortType={props.sortType}
           onClick={sortRestaurants}
