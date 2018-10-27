@@ -9,9 +9,7 @@ This is an application, which allows us for adding restaurants to the list of fa
 
 ### Favourite restaurants in action!
 
-<video src="./public/video.mp4" width="320" height="200" controls preload></video>
-
-
+<img src="./video-gif.gif">
 
 ### Technologies
 
