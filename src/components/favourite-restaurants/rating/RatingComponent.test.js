@@ -20,10 +20,10 @@ describe('Test RatingComponent', () => {
     const enzymeWrapper = mount(<RatingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().rating).toBe(props.rating);
-    expect(enzymeWrapper.props().readonly).toBeFalsy();
-    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(props.rating);
-    expect(enzymeWrapper.find(Rating).props().readonly).toBeFalsy();
+    expect(enzymeWrapper.props().rating).toBe(0);
+    expect(enzymeWrapper.props().readonly).toBe(false);
+    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(0);
+    expect(enzymeWrapper.find(Rating).props().readonly).toBe(false);
   });
 
   it('should display full rating', () => {
@@ -38,10 +38,10 @@ describe('Test RatingComponent', () => {
     const enzymeWrapper = mount(<RatingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().rating).toBe(props.rating);
-    expect(enzymeWrapper.props().readonly).toBeFalsy();
-    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(props.rating);
-    expect(enzymeWrapper.find(Rating).props().readonly).toBeFalsy();
+    expect(enzymeWrapper.props().rating).toBe(5);
+    expect(enzymeWrapper.props().readonly).toBe(false);
+    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(5);
+    expect(enzymeWrapper.find(Rating).props().readonly).toBe(false);
   });
 
   it('should display readonly rating', () => {
@@ -56,9 +56,9 @@ describe('Test RatingComponent', () => {
     const enzymeWrapper = mount(<RatingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().rating).toBe(props.rating);
-    expect(enzymeWrapper.props().readonly).toBeTruthy();
-    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(props.rating);
-    expect(enzymeWrapper.find(Rating).props().readonly).toBeTruthy();
+    expect(enzymeWrapper.props().rating).toBe(5);
+    expect(enzymeWrapper.props().readonly).toBe(true);
+    expect(enzymeWrapper.find(Rating).props().initialRating).toBe(5);
+    expect(enzymeWrapper.find(Rating).props().readonly).toBe(true);
   });
 });

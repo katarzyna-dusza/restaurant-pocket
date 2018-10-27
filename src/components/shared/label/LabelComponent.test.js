@@ -9,13 +9,13 @@ describe('Test LabelComponent', () => {
   it('should display proper label', () => {
     // given
     const props = {
-      text: 'Name it',
+      text: 'Name',
     };
 
     // when
     const enzymeWrapper = shallow(<LabelComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().children).toEqual([props.text, ':']);
+    expect(enzymeWrapper.props().children).toEqual(['Name', ':']);
   });
 });

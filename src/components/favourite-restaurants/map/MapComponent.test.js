@@ -25,7 +25,7 @@ describe('Test MapComponent', () => {
     const enzymeWrapper = mount(<MapComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().geo).toBe(props.geo);
+    expect(enzymeWrapper.props().geo).toEqual({lat: 52.521742, lng: 13.396832});
     expect(enzymeWrapper.find(GoogleMapReact)).toHaveLength(1);
     expect(enzymeWrapper.find(GoogleMapReact).props().center).toBe(props.geo);
   });
@@ -46,10 +46,10 @@ describe('Test MapComponent', () => {
     const enzymeWrapper = mount(<MapComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().geo).toBe(props.geo);
+    expect(enzymeWrapper.props().geo).toEqual({lat: 52.521742, lng: 13.396832});
     expect(enzymeWrapper.find(MarkerComponent)).toHaveLength(1);
-    expect(enzymeWrapper.find(MarkerComponent).props().lat).toBe(props.geo.lat);
-    expect(enzymeWrapper.find(MarkerComponent).props().lng).toBe(props.geo.lng);
+    expect(enzymeWrapper.find(MarkerComponent).props().lat).toBe(52.521742);
+    expect(enzymeWrapper.find(MarkerComponent).props().lng).toBe(13.396832);
   });
 
   it('should display multiple MarkerComponents', () => {
@@ -81,44 +81,44 @@ describe('Test MapComponent', () => {
     const enzymeWrapper = mount(<MapComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().geo).toBe(props.geo);
+    expect(enzymeWrapper.props().geo).toEqual({lat: 52.521742, lng: 13.396832});;
     expect(enzymeWrapper.find(MarkerComponent)).toHaveLength(3);
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(0)
         .props().lat,
-    ).toBe(props.geo.lat);
+    ).toBe(52.521742);
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(0)
         .props().lng,
-    ).toBe(props.geo.lng);
+    ).toBe(13.396832);
 
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(1)
         .props().lat,
-    ).toBe(props.restaurants[0].lat);
+    ).toBe(52);
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(1)
         .props().lng,
-    ).toBe(props.restaurants[0].lng);
+    ).toBe(13);
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(2)
         .props().lat,
-    ).toBe(props.restaurants[1].lat);
+    ).toBe(52.52);
     expect(
       enzymeWrapper
         .find(MarkerComponent)
         .at(2)
         .props().lng,
-    ).toBe(props.restaurants[1].lng);
+    ).toBe(13.39);
   });
 });

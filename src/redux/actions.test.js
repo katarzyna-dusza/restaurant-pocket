@@ -11,7 +11,6 @@ describe('Test Actions', () => {
   it('should create SORT action', () => {
     // given
     const actionDataToSend = 'ASC';
-    const expectedActions = [{ sortType: actionDataToSend, type: 'SORT' }];
     const store = mockStore({
       address: '',
       geo: { lat: 52.52000659999999, lng: 13.404954 },
@@ -24,15 +23,12 @@ describe('Test Actions', () => {
     store.dispatch(actions.sortData(actionDataToSend));
 
     // then
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(store.getActions()).toEqual([{ sortType: 'ASC', type: 'SORT' }]);
   });
 
   it('should create ADDRESS_SET action', () => {
     // given
     const actionDataToSend = 'Address 18, City';
-    const expectedActions = [
-      { address: actionDataToSend, type: 'ADDRESS_SET' },
-    ];
     const store = mockStore({
       address: '',
       geo: { lat: 52.52000659999999, lng: 13.404954 },
@@ -45,7 +41,7 @@ describe('Test Actions', () => {
     store.dispatch(actions.setAddress(actionDataToSend));
 
     // then
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(store.getActions()).toEqual([{ address: 'Address 18, City', type: 'ADDRESS_SET' }]);
   });
 
   it('should create RESTAURANT_ADDED action', () => {
@@ -56,9 +52,6 @@ describe('Test Actions', () => {
       name: 'test',
       rating: 3,
     };
-    const expectedActions = [
-      { restaurantData: actionDataToSend, type: 'RESTAURANT_ADDED' },
-    ];
     const store = mockStore({
       address: '',
       geo: { lat: 52.52000659999999, lng: 13.404954 },
@@ -71,6 +64,9 @@ describe('Test Actions', () => {
     store.dispatch(actions.addRestaurant(actionDataToSend));
 
     // then
+    const expectedActions = [
+      { restaurantData: actionDataToSend, type: 'RESTAURANT_ADDED' },
+    ];
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -89,10 +85,6 @@ describe('Test Actions', () => {
         },
       ],
     };
-    const actionDataReceived = { lat: 52.521742, lng: 13.396832 };
-    const expectedActions = [
-      { geoData: actionDataReceived, type: 'GEO_FETCHED' },
-    ];
     const store = mockStore({
       address: '',
       geo: { lat: 52.521742, lng: 13.396832 },
@@ -109,7 +101,7 @@ describe('Test Actions', () => {
 
     // then
     return store.dispatch(actions.fetchGeo(actionDataToSend)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
+      expect(store.getActions()).toEqual([{ geoData: { lat: 52.521742, lng: 13.396832 }, type: 'GEO_FETCHED' }]);
     });
   });
 });

@@ -22,14 +22,8 @@ describe('Test InputComponent', () => {
     const enzymeWrapper = mount(<InputComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().message).toBe(props.message);
-    expect(enzymeWrapper.props().position).toBe(props.position);
-    expect(enzymeWrapper.props().open).toBe(props.open);
-
-    expect(enzymeWrapper.find('input').props().placeholder).toBe(
-      props.placeholder,
-    );
-    expect(enzymeWrapper.find('input').props().value).toBe(props.value);
+    expect(enzymeWrapper.props().open).toBe(false);
+    expect(enzymeWrapper.find('input').props().value).toBe('');
   });
 
   it('should display an input wit a tooltip', () => {
@@ -47,14 +41,8 @@ describe('Test InputComponent', () => {
     const enzymeWrapper = mount(<InputComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().message).toBe(props.message);
-    expect(enzymeWrapper.props().position).toBe(props.position);
-    expect(enzymeWrapper.props().open).toBe(props.open);
-
-    expect(enzymeWrapper.find('input').props().placeholder).toBe(
-      props.placeholder,
-    );
-    expect(enzymeWrapper.find('input').props().value).toBe(props.value);
+    expect(enzymeWrapper.props().open).toBe(true);
+    expect(enzymeWrapper.find('input').props().value).toBe('something**');
   });
 
   it('should react on change', () => {
@@ -74,6 +62,6 @@ describe('Test InputComponent', () => {
     enzymeWrapper.find('input').simulate('change', event);
 
     // then
-    expect(props.handleChange.calledOnce).toBeTruthy();
+    expect(props.handleChange.calledOnce).toBe(true);
   });
 });

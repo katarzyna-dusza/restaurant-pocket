@@ -42,7 +42,7 @@ describe('Test RestaurantsComponent', () => {
     expect(enzymeWrapper.find(SortingComponent)).toHaveLength(1);
     expect(
       enzymeWrapper.find(SortingComponent).props().sortingAvailable,
-    ).toBeFalsy();
+    ).toBe(false);
     expect(enzymeWrapper.find(PaginatedListComponent)).toHaveLength(1);
     expect(enzymeWrapper.find(Pagination)).toHaveLength(0);
     expect(enzymeWrapper.find(RestaurantCardComponent)).toHaveLength(1);
@@ -70,7 +70,7 @@ describe('Test RestaurantsComponent', () => {
     expect(enzymeWrapper.find(SortingComponent)).toHaveLength(1);
     expect(
       enzymeWrapper.find(SortingComponent).props().sortingAvailable,
-    ).toBeTruthy();
+    ).toBe(true);
     expect(
       enzymeWrapper
         .find('i')

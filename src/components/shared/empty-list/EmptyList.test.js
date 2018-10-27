@@ -16,6 +16,6 @@ describe('Test EmptyListComponent', () => {
     const enzymeWrapper = shallow(<EmptyListComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().children).toBe(props.text);
+    expect(enzymeWrapper.props().children).toBe('Something empty');
   });
 });

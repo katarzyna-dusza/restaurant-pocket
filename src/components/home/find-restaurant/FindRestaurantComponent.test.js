@@ -25,7 +25,7 @@ describe('Test FindRestaurantComponent', () => {
 
     // then
     expect(enzymeWrapper.find(ButtonComponent)).toHaveLength(1);
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeTruthy();
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(true);
     expect(enzymeWrapper.find(InputComponent)).toHaveLength(1);
     expect(enzymeWrapper.find(InputComponent).props().value).toBe('');
   });
@@ -42,8 +42,8 @@ describe('Test FindRestaurantComponent', () => {
     enzymeWrapper.setState({ address: fakeAddress });
 
     // then
-    expect(enzymeWrapper.find(InputComponent).props().value).toBe(fakeAddress);
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeFalsy();
+    expect(enzymeWrapper.find(InputComponent).props().value).toBe('Address 18, City');
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(false);
   });
 
   it('should display FindRestaurantComponent with disabled button, filled restaurant name with an error (forbidden char)', () => {
@@ -52,18 +52,15 @@ describe('Test FindRestaurantComponent', () => {
     const mockStore = configureStore();
     const store = mockStore(initialState);
     const fakeAddress = 'Wrong address &^%';
-    const message =
-      'Please, use alphanumeric characters and optionally `.`, `,`, `/` to write correct address. The address should have max 40 characters.';
 
     // when
     const enzymeWrapper = mount(<FindRestaurantComponent store={store} />);
     enzymeWrapper.setState({ address: fakeAddress });
 
     // then
-    expect(enzymeWrapper.find(InputComponent).props().value).toBe(fakeAddress);
-    expect(enzymeWrapper.find(InputComponent).props().open).toBeTruthy();
-    expect(enzymeWrapper.find(InputComponent).props().message).toBe(message);
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeTruthy();
+    expect(enzymeWrapper.find(InputComponent).props().value).toBe('Wrong address &^%');
+    expect(enzymeWrapper.find(InputComponent).props().open).toBe(true);
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(true);
   });
 
   it('should react on Find event', () => {

@@ -17,7 +17,7 @@ describe('Test PaginatedListComponent', () => {
     const enzymeWrapper = mount(<PaginatedListComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().data).toEqual(props.data);
+    expect(enzymeWrapper.props().data).toEqual([1, 2, 3]);
     expect(enzymeWrapper.find(Pagination)).toHaveLength(0);
   });
 
@@ -31,7 +31,7 @@ describe('Test PaginatedListComponent', () => {
     const enzymeWrapper = mount(<PaginatedListComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().data).toEqual(props.data);
+    expect(enzymeWrapper.props().data).toEqual([1, 2, 3, 4]);
     expect(enzymeWrapper.find(Pagination)).toHaveLength(0);
   });
 
@@ -45,7 +45,7 @@ describe('Test PaginatedListComponent', () => {
     const enzymeWrapper = mount(<PaginatedListComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().data).toEqual(props.data);
+    expect(enzymeWrapper.props().data).toEqual([1, 2, 3, 4, 5]);
     expect(enzymeWrapper.find(Pagination)).toHaveLength(1);
   });
 
@@ -61,7 +61,7 @@ describe('Test PaginatedListComponent', () => {
     secondPageButton.simulate('click');
 
     // then
-    expect(enzymeWrapper.props().data).toEqual(props.data);
+    expect(enzymeWrapper.props().data).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
     expect(enzymeWrapper.find(Pagination)).toHaveLength(1);
     expect(enzymeWrapper.state().activePage).toBe(2);
     expect(enzymeWrapper.children().props().children[0]).toEqual[(5, 6, 7, 8)];

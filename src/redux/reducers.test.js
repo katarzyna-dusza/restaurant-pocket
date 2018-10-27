@@ -8,7 +8,7 @@ const mockStore = configureMockStore(middlewares);
 
 describe('Test Reducers', () => {
   it('should return the initial state of actions', () => {
-    // given
+    // then
     const expectedValue = {
       address: '',
       geo: {},
@@ -16,8 +16,6 @@ describe('Test Reducers', () => {
       restaurantsByName: {},
       sortType: 'DESC',
     };
-
-    // then
     expect(reducers(undefined, {})).toEqual(expectedValue);
   });
 
@@ -30,13 +28,6 @@ describe('Test Reducers', () => {
       restaurantsByName: {},
       sortType: 'DESC',
     };
-    const expectedValue = {
-      address: '',
-      geo: {},
-      restaurantNames: [],
-      restaurantsByName: {},
-      sortType: 'ASC',
-    };
 
     // when
     const action = {
@@ -45,6 +36,13 @@ describe('Test Reducers', () => {
     };
 
     // then
+    const expectedValue = {
+      address: '',
+      geo: {},
+      restaurantNames: [],
+      restaurantsByName: {},
+      sortType: 'ASC',
+    };
     deepFreeze(actualValue);
     expect(reducers(actualValue, action)).toEqual(expectedValue);
   });
@@ -58,13 +56,6 @@ describe('Test Reducers', () => {
       restaurantsByName: {},
       sortType: 'DESC',
     };
-    const expectedValue = {
-      address: 'Address 18, City',
-      geo: {},
-      restaurantNames: [],
-      restaurantsByName: {},
-      sortType: 'DESC',
-    };
 
     // when
     const action = {
@@ -73,6 +64,13 @@ describe('Test Reducers', () => {
     };
 
     // then
+    const expectedValue = {
+      address: 'Address 18, City',
+      geo: {},
+      restaurantNames: [],
+      restaurantsByName: {},
+      sortType: 'DESC',
+    };
     deepFreeze(actualValue);
     expect(reducers(actualValue, action)).toEqual(expectedValue);
   });
@@ -86,13 +84,6 @@ describe('Test Reducers', () => {
       restaurantsByName: {},
       sortType: 'DESC',
     };
-    const expectedValue = {
-      address: 'Address 18, City',
-      geo: { lat: 52.52000659999999, lng: 13.404954 },
-      restaurantNames: [],
-      restaurantsByName: {},
-      sortType: 'DESC',
-    };
 
     // when
     const action = {
@@ -101,6 +92,13 @@ describe('Test Reducers', () => {
     };
 
     // then
+    const expectedValue = {
+      address: 'Address 18, City',
+      geo: { lat: 52.52000659999999, lng: 13.404954 },
+      restaurantNames: [],
+      restaurantsByName: {},
+      sortType: 'DESC',
+    };
     deepFreeze(actualValue);
     expect(reducers(actualValue, action)).toEqual(expectedValue);
   });
@@ -112,20 +110,6 @@ describe('Test Reducers', () => {
       geo: { lat: 52.52000659999999, lng: 13.404954 },
       restaurantNames: [],
       restaurantsByName: {},
-      sortType: 'DESC',
-    };
-    const expectedValue = {
-      address: 'Address 18, City',
-      geo: { lat: 52.52000659999999, lng: 13.404954 },
-      restaurantNames: ['name'],
-      restaurantsByName: {
-        name: {
-          lat: 52.52000659999999,
-          lng: 13.404954,
-          name: 'name',
-          rating: 4,
-        },
-      },
       sortType: 'DESC',
     };
 
@@ -141,26 +125,26 @@ describe('Test Reducers', () => {
     };
 
     // then
+    const expectedValue = {
+      address: 'Address 18, City',
+      geo: { lat: 52.52000659999999, lng: 13.404954 },
+      restaurantNames: ['name'],
+      restaurantsByName: {
+        name: {
+          lat: 52.52000659999999,
+          lng: 13.404954,
+          name: 'name',
+          rating: 4,
+        },
+      },
+      sortType: 'DESC',
+    };
     deepFreeze(actualValue);
     expect(reducers(actualValue, action)).toEqual(expectedValue);
   });
 
   it('should return array of restaurants in descending order', () => {
     // given
-    const expectedValue = [
-      {
-        lat: 52.52000659999999,
-        lng: 13.404954,
-        name: 'two',
-        rating: 4,
-      },
-      {
-        lat: 52.52000659999999,
-        lng: 13.404954,
-        name: 'one',
-        rating: 2,
-      },
-    ];
     const store = mockStore({
       address: '',
       geo: {},
@@ -187,25 +171,25 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getRestaurants(state);
 
     // then
-    expect(actualValue).toEqual(expectedValue);
-  });
-
-  it('should return array of restaurants in ascending order', () => {
-    // given
     const expectedValue = [
-      {
-        lat: 52.52000659999999,
-        lng: 13.404954,
-        name: 'one',
-        rating: 2,
-      },
       {
         lat: 52.52000659999999,
         lng: 13.404954,
         name: 'two',
         rating: 4,
       },
+      {
+        lat: 52.52000659999999,
+        lng: 13.404954,
+        name: 'one',
+        rating: 2,
+      },
     ];
+    expect(actualValue).toEqual(expectedValue);
+  });
+
+  it('should return array of restaurants in ascending order', () => {
+    // given
     const store = mockStore({
       address: '',
       geo: {},
@@ -232,12 +216,25 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getRestaurants(state);
 
     // then
+    const expectedValue = [
+      {
+        lat: 52.52000659999999,
+        lng: 13.404954,
+        name: 'one',
+        rating: 2,
+      },
+      {
+        lat: 52.52000659999999,
+        lng: 13.404954,
+        name: 'two',
+        rating: 4,
+      },
+    ];
     expect(actualValue).toEqual(expectedValue);
   });
 
   it('should return array of restaurant names', () => {
     // given
-    const expectedValue = ['one', 'two'];
     const store = mockStore({
       address: '',
       geo: {},
@@ -264,12 +261,11 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getRestaurantNames(state);
 
     // then
-    expect(actualValue).toEqual(expectedValue);
+    expect(actualValue).toEqual(['one', 'two']);
   });
 
   it('should return address', () => {
     // given
-    const expectedValue = 'Address 18, City';
     const store = mockStore({
       address: 'Address 18, City',
       geo: {},
@@ -283,12 +279,11 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getAddress(state);
 
     // then
-    expect(actualValue).toEqual(expectedValue);
+    expect(actualValue).toEqual('Address 18, City');
   });
 
   it('should return geo location', () => {
     // given
-    const expectedValue = { lat: 52.52000659999999, lng: 13.404954 };
     const store = mockStore({
       address: 'Address 18, City',
       geo: { lat: 52.52000659999999, lng: 13.404954 },
@@ -302,12 +297,11 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getGeo(state);
 
     // then
-    expect(actualValue).toEqual(expectedValue);
+    expect(actualValue).toEqual({ lat: 52.52000659999999, lng: 13.404954 });
   });
 
   it('should return sort type', () => {
     // given
-    const expectedValue = 'ASC';
     const store = mockStore({
       address: '',
       geo: {},
@@ -321,6 +315,6 @@ describe('Test Reducers', () => {
     const actualValue = reducerMethods.getSortType(state);
 
     // then
-    expect(actualValue).toEqual(expectedValue);
+    expect(actualValue).toEqual('ASC');
   });
 });

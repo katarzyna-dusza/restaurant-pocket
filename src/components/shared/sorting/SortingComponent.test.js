@@ -19,7 +19,7 @@ describe('Test SortingComponent', () => {
     const enzymeWrapper = mount(<SortingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().sortType).toBe(props.sortType);
+    expect(enzymeWrapper.props().sortType).toBe('ASC');
     expect(enzymeWrapper.find('i')).toHaveLength(1);
     expect(
       enzymeWrapper
@@ -41,7 +41,7 @@ describe('Test SortingComponent', () => {
     const enzymeWrapper = mount(<SortingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().sortType).toBe(props.sortType);
+    expect(enzymeWrapper.props().sortType).toBe('DESC');
     expect(enzymeWrapper.find('i')).toHaveLength(1);
     expect(
       enzymeWrapper
@@ -63,7 +63,7 @@ describe('Test SortingComponent', () => {
     const enzymeWrapper = mount(<SortingComponent {...props} />);
 
     // then
-    expect(enzymeWrapper.props().sortType).toBe(props.sortType);
+    expect(enzymeWrapper.props().sortType).toBe('ASC');
     expect(enzymeWrapper.find('i')).toHaveLength(0);
   });
 });

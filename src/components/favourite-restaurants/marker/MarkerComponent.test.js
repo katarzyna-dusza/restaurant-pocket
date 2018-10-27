@@ -19,7 +19,7 @@ describe('Test MarkerComponent', () => {
     expect(enzymeWrapper.find('i')).toHaveLength(1);
     expect(enzymeWrapper.state().name).toBe('');
     expect(enzymeWrapper.state().rating).toBe(0);
-    expect(enzymeWrapper.state().showMarker).toBeFalsy();
+    expect(enzymeWrapper.state().showMarker).toBe(false);
   });
 
   it('should display MarkerComponent with the form in initial state', () => {
@@ -30,17 +30,17 @@ describe('Test MarkerComponent', () => {
     // then
     expect(enzymeWrapper.state().name).toBe('');
     expect(enzymeWrapper.state().rating).toBe(0);
-    expect(enzymeWrapper.state().showMarker).toBeTruthy();
+    expect(enzymeWrapper.state().showMarker).toBe(true);
     expect(enzymeWrapper.find(InputComponent)).toHaveLength(1);
     expect(enzymeWrapper.find(ButtonComponent)).toHaveLength(1);
     expect(enzymeWrapper.find(RatingComponent)).toHaveLength(1);
     expect(enzymeWrapper.find(LabelComponent)).toHaveLength(2);
 
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeTruthy();
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(true);
     expect(enzymeWrapper.find(RatingComponent).props().rating).toBe(
       enzymeWrapper.state().rating,
     );
-    expect(enzymeWrapper.find(InputComponent).props().open).toBeFalsy();
+    expect(enzymeWrapper.find(InputComponent).props().open).toBe(false);
   });
 
   it('should display MarkerComponent with the form: enabled button, filled restaurant name', () => {
@@ -56,10 +56,8 @@ describe('Test MarkerComponent', () => {
     enzymeWrapper.setState({ name: restaurantName });
 
     // then
-    expect(enzymeWrapper.find(InputComponent).props().value).toBe(
-      restaurantName,
-    );
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeFalsy();
+    expect(enzymeWrapper.find(InputComponent).props().value).toBe('name');
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(false);
   });
 
   it('should display MarkerComponent with the form: disabled button, filled restaurant name with an error (forbidden char)', () => {
@@ -68,8 +66,6 @@ describe('Test MarkerComponent', () => {
       restaurantNames: [],
     };
     const restaurantName = 'name**';
-    const message =
-      'Please, use alphanumeric characters to write name. The first character must be a letter. The name should have max 20 characters.';
 
     // when
     const enzymeWrapper = mount(<MarkerComponent {...props} />);
@@ -77,12 +73,9 @@ describe('Test MarkerComponent', () => {
     enzymeWrapper.setState({ name: restaurantName });
 
     // then
-    expect(enzymeWrapper.find(InputComponent).props().value).toBe(
-      restaurantName,
-    );
-    expect(enzymeWrapper.find(InputComponent).props().open).toBeTruthy();
-    expect(enzymeWrapper.find(InputComponent).props().message).toBe(message);
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeTruthy();
+    expect(enzymeWrapper.find(InputComponent).props().value).toBe('name**');
+    expect(enzymeWrapper.find(InputComponent).props().open).toBe(true);
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(true);
   });
 
   it('should display MarkerComponent with the form: disabled button, filled restaurant name with an error (name exists)', () => {
@@ -91,7 +84,6 @@ describe('Test MarkerComponent', () => {
       restaurantNames: ['name'],
     };
     const restaurantName = 'name';
-    const message = 'This name already exists. Please, use another one.';
 
     // when
     const enzymeWrapper = mount(<MarkerComponent {...props} />);
@@ -99,12 +91,9 @@ describe('Test MarkerComponent', () => {
     enzymeWrapper.setState({ name: restaurantName });
 
     // then
-    expect(enzymeWrapper.find(InputComponent).props().value).toBe(
-      restaurantName,
-    );
-    expect(enzymeWrapper.find(InputComponent).props().open).toBeTruthy();
-    expect(enzymeWrapper.find(InputComponent).props().message).toBe(message);
-    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBeTruthy();
+    expect(enzymeWrapper.find(InputComponent).props().value).toBe('name');
+    expect(enzymeWrapper.find(InputComponent).props().open).toBe(true);
+    expect(enzymeWrapper.find(ButtonComponent).props().disabled).toBe(true);
   });
 
   it('should react on addRestaurant event', () => {
@@ -132,6 +121,6 @@ describe('Test MarkerComponent', () => {
     expect(enzymeWrapper.find('i')).toHaveLength(1);
     expect(enzymeWrapper.state().name).toBe('');
     expect(enzymeWrapper.state().rating).toBe(0);
-    expect(enzymeWrapper.state().showMarker).toBeFalsy();
+    expect(enzymeWrapper.state().showMarker).toBe(false);
   });
 });
