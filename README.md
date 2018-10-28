@@ -1,13 +1,11 @@
-# Favourite restaurants
+# Restaurant pocket
 
-This is an application, which allows us for adding restaurants to the list of favourites. It has two views:
+Restaurant pocket allows us for adding restaurants to the list of favourites. It has two views:
 
-- Home view - with input (address) field for searching restaurants
-- Favourite restaurants view - a list of favorite restaurants with the google map. It allows to rate a restaurant and add to favorites.
+- **Home view** - with address input field for searching restaurants,
+- **Favourite restaurants view** - a list of favourite restaurants with the Google Map. It allows to rate a restaurant and add it to favourites.
 
-
-
-### Favourite restaurants in action!
+### Restaurant pocket in action!
 
 <img src="./video.gif">
 
@@ -18,7 +16,7 @@ This is an application, which allows us for adding restaurants to the list of fa
 - Google Maps
 - StyledComponents
 - Prettier
-- Testing tools:
+- Testing:
   - Enzyme
   - Sinon
   - Deep-freeze
@@ -57,8 +55,9 @@ npm test
 
 
 
-### What could be better?
+### Improvement ideas
 
 * [ ] When clicking on a restaurant, its entry and its marker could be highlighted
 * [ ] Use external library for validation
 * [ ] Redesign favourite restaurants view for mobile devices
+* [ ] Add search field to favourite restaurants view
