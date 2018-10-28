@@ -1,3 +1,3 @@
-const API_KEY = '<FEEL_ME>';
+const API_KEY = <FILL_ME>;
 
 export default API_KEY;
