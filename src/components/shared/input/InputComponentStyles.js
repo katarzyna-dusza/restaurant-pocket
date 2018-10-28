@@ -16,4 +16,10 @@ export const InputComponentWrapper = styled.input`
   ::placeholder {
     font-family: 'Ubuntu', sans-serif;
   }
+
+  @media screen and (max-width: 768px) {
+    width: ${(props) => (props.big ? '100%' : 'calc(90% - 20px)')};
+    padding-left: ${(props) => (props.big ? '0' : '20px')};
+    text-align: ${(props) => (props.big ? 'center' : 'initial')};
+  }
 `;

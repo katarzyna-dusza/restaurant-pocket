@@ -18,4 +18,9 @@ export const ButtonComponentWrapper = styled.button`
   right: ${(props) => (props.big ? 'none' : '10px')};
   position: ${(props) => (props.big ? 'initial' : 'absolute')};
   pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
+
+  @media screen and (max-width: 768px) {
+    width: ${(props) => (props.big ? '100%' : 'initial')};
+    margin-top: ${(props) => (props.big ? '20px' : '0')};
+  }
 `;

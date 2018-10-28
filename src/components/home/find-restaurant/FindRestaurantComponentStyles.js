@@ -6,6 +6,11 @@ export const FindRestaurantComponentWrapper = styled.div`
   padding: 5%;
   position: relative;
   top: 20%;
+
+  @media screen and (max-width: 900px) {
+    width: 70%;
+    margin-left: 10%;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -26,4 +31,8 @@ export const HomeHeader = styled.h3`
   font-size: ${(props) => (props.big ? '50px' : '20px')};
   font-weight: ${(props) => (props.big ? '400' : '300')};
   font-style: ${(props) => (props.big ? 'initial' : 'italic')};
+
+  @media screen and (max-width: 900px) {
+    font-size: ${(props) => (props.big ? '40px' : 'initial')};
+  }
 `;

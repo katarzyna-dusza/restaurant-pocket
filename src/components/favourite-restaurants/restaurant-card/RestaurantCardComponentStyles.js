@@ -10,6 +10,10 @@ export const RestaurantCardComponentWrapper = styled.div`
   font-family: 'Ubuntu', sans-serif;
   font-size: 20px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+
+  @media screen and (max-width: 768px) {
+    margin: 10px;
+  }
 `;
 
 export const Name = styled.div`

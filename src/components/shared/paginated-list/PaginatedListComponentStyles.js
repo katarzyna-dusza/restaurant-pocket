@@ -9,6 +9,11 @@ export const PaginationWrapper = styled.div`
   left: 0;
   height: 80px;
 
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
+
   > ul {
     width: 100%;
     margin: auto;

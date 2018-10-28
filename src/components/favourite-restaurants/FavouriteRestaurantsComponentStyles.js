@@ -9,6 +9,12 @@ export const RestaurantsWrapper = styled.div`
   font-size: 40px;
   text-align: center;
   float: left;
+
+  @media screen and (max-width: 900px) {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const MapWrapper = styled.div`
@@ -19,6 +25,10 @@ export const MapWrapper = styled.div`
   font-size: 40px;
   text-align: center;
   float: right;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 
   > div {
     height: 100%;
