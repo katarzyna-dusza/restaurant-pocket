@@ -60,5 +60,5 @@ npm test
 ### What could be better?
 
 * [ ] When clicking on a restaurant, its entry and its marker could be highlighted
-* [ ] Responsive Web Design
 * [ ] Use external library for validation
+* [ ] Redesign favourite restaurants view for mobile devices
