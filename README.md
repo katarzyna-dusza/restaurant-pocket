@@ -29,8 +29,11 @@ Restaurant pocket allows us for adding restaurants to the list of favourites. It
    ```bash
    yarn
    ```
+   
+2. Create an account on [Google Cloud Platform](https://cloud.google.com/). Using [this](https://developers.google.com/maps/documentation/javascript/get-api-key) documentation, create an API Key.
 
-2. Copy `API_KEY` from the e-mail and paste it into `src/api-key.js` file.
+3. Go to the `Dashboard` and under `Enabled APIs and services`, enable **Geocoding** and **Maps JavaScript** APIs.
+3. Copy created `API_KEY` and paste it into `src/api-key.js` file.
 
    ```javascript
    const API_KEY = '<FILL_ME>';
@@ -38,7 +41,7 @@ Restaurant pocket allows us for adding restaurants to the list of favourites. It
    export default API_KEY;
    ```
 
-3. Run app:
+4. Run app:
 
    ```bash
    npm start
@@ -61,3 +64,4 @@ npm test
 * [ ] Use external library for validation
 * [ ] Redesign favourite restaurants view for mobile devices
 * [ ] Add search field to favourite restaurants view
+* [ ] Stick a tooltip to an input field (marker)
